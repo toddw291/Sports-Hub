@@ -8,8 +8,10 @@ import {
   TEAMS,
   assertSnapshot,
   endpointFor,
+  mergeScheduleFeeds,
   normalizeTeam,
   normalizeUfc,
+  scheduleHasOpenGame,
   ufcDateWindow,
 } from "./normalize.js";
 
@@ -42,25 +44,49 @@ async function optionalJson(url, fetchImpl) {
   }
 }
 
+function scheduleYear(schedule, now) {
+  const year = Number(schedule?.season?.year);
+  return Number.isFinite(year) ? year : now.getUTCFullYear();
+}
+
+async function loadSchedule(team, fetchImpl, now) {
+  const primary = await fetchJson(endpointFor("schedule", team), fetchImpl);
+  if (team.league !== "MLB") return primary;
+  const events = Array.isArray(primary?.events) ? primary.events : [];
+  if (events.length && scheduleHasOpenGame(primary)) return primary;
+  const year = scheduleYear(primary, now);
+  const regular = events.length
+    ? primary
+    : await fetchJson(endpointFor("schedule", team, { season: year, seasontype: 2 }), fetchImpl);
+  if (scheduleHasOpenGame(regular)) return regular;
+  const upcoming = await optionalJson(
+    endpointFor("schedule", team, { season: year + 1, seasontype: 2 }),
+    fetchImpl,
+  );
+  return upcoming?.events?.length ? mergeScheduleFeeds(regular, upcoming) : regular;
+}
+
 export async function buildLiveSnapshot(fetchImpl = globalThis.fetch, now = new Date()) {
   if (typeof fetchImpl !== "function") throw new Error("fetch is not available");
   const window = ufcDateWindow(now);
-  const nfl = TEAMS.find((team) => team.league === "NFL");
-  const nba = TEAMS.find((team) => team.league === "NBA");
-  const [schedules, nflScoreboard, nbaScoreboard, nflStandings, nbaStandings, ufcBoard] = await Promise.all([
-    Promise.all(TEAMS.map((team) => fetchJson(endpointFor("schedule", team), fetchImpl))),
-    optionalJson(endpointFor("scoreboard", nfl), fetchImpl),
-    optionalJson(endpointFor("scoreboard", nba), fetchImpl),
-    optionalJson(endpointFor("standings", nfl), fetchImpl),
-    optionalJson(endpointFor("standings", nba), fetchImpl),
+  const leagues = [];
+  for (const team of TEAMS) {
+    if (!leagues.some((item) => item.league === team.league)) leagues.push(team);
+  }
+  const [schedules, boards, tables, ufcBoard] = await Promise.all([
+    Promise.all(TEAMS.map((team) => loadSchedule(team, fetchImpl, now))),
+    Promise.all(leagues.map((team) => optionalJson(endpointFor("scoreboard", team), fetchImpl))),
+    Promise.all(leagues.map((team) => optionalJson(endpointFor("standings", team), fetchImpl))),
     fetchJson(endpointFor("ufc", null, window), fetchImpl),
   ]);
+  const scoreboardByLeague = new Map(leagues.map((team, index) => [team.league, boards[index]]));
+  const standingsByLeague = new Map(leagues.map((team, index) => [team.league, tables[index]]));
 
   const teams = TEAMS.map((team, index) => normalizeTeam({
     team,
     schedule: schedules[index],
-    scoreboard: team.league === "NFL" ? nflScoreboard : nbaScoreboard,
-    standings: team.league === "NFL" ? nflStandings : nbaStandings,
+    scoreboard: scoreboardByLeague.get(team.league),
+    standings: standingsByLeague.get(team.league),
   }));
   const snapshot = {
     schemaVersion: 1,

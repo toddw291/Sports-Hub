@@ -39,13 +39,13 @@ Keep `schemaVersion` at `1`. Times stay UTC ISO-8601 strings (`2026-11-08T18:00:
 
 ### Teams
 
-`teams` is an array. Keep these `id` values: `colts`, `pacers`, `bengals`.
+`teams` is an array. Keep these `id` values: `colts`, `pacers`, `reds`.
 
 | id | League | ESPN team id |
 | --- | --- | --- |
 | colts | NFL | 11 |
-| bengals | NFL | 4 |
 | pacers | NBA | 11 |
+| reds | MLB | 17 |
 
 Each team:
 
@@ -105,7 +105,7 @@ Each team:
 
 `ours` is `home`, `away`, or `null`.
 
-`timeValid: false` means show the date and **Time TBD** (the Bengals/Colts game in late December is like this).
+`timeValid: false` means show the date and **Time TBD**. The Reds’ following opening day is often like this in the winter.
 
 `score` is a string (`"0"`, `"27"`) or `null`. Do not use a number. Zero is a real score. Leave `winner` false unless the game is final.
 
@@ -164,12 +164,16 @@ ESPN’s feed writes KO/TKO as the text `Unofficial Winner Kotko`. The script ma
 No key. Each of these responded with `access-control-allow-origin: *` when this app was built, so the phone calls them itself.
 
 - Colts schedule: `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/11/schedule`
-- Bengals schedule: `https://site.api.espn.com/apis/site/v2/sports/football/nfl/teams/4/schedule`
 - Pacers schedule: `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/teams/11/schedule`
+- Reds schedule: `https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/17/schedule`
 - NFL scoreboard (live scores for the current week): `https://site.api.espn.com/apis/site/v2/sports/football/nfl/scoreboard`
 - NBA scoreboard: `https://site.api.espn.com/apis/site/v2/sports/basketball/nba/scoreboard`
+- MLB scoreboard: `https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/scoreboard`
 - NFL standings by division: `https://site.api.espn.com/apis/v2/sports/football/nfl/standings?level=3`
 - NBA standings by division: `https://site.api.espn.com/apis/v2/sports/basketball/nba/standings?level=3`
+- MLB standings by division: `https://site.api.espn.com/apis/v2/sports/baseball/mlb/standings?level=3`
+
+During the MLB offseason the plain Reds schedule returns no games, because ESPN is on the postseason and the Reds are not in it. The loader then requests `?season=YYYY&seasontype=2` for that year’s regular season and, if every game is already final, `?season=YYYY+1&seasontype=2` for the next opening day. A hand edit can store the same merged list. `nextGame` stays `null` when the next season is not posted yet. Last results and standings still fill in from whatever those feeds returned.
 - UFC cards in a date window: `https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=YYYYMMDD-YYYYMMDD`
 
 The schedule feed often has no score while a game is in progress. The scoreboard feed has the live number. The script copies the live number onto the schedule game with the same `id`.

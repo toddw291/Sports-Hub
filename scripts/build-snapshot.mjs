@@ -2,6 +2,8 @@
  * Rebuild sports/data/snapshot.json from ESPN's public feeds.
  * No API key. Run from anywhere: node scripts/build-snapshot.mjs
  * Leaves the file alone when the games and scores have not changed.
+ * MLB's default schedule is empty in the offseason. The loader in
+ * sports/js/api.js fills the Reds from the regular season and the next opener.
  */
 
 import { readFile, writeFile } from "node:fs/promises";
