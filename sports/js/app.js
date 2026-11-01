@@ -1,6 +1,6 @@
 import { buildLiveSnapshot, snapshotProblems } from "./api.js";
 
-const TEAM_ORDER = ["colts", "pacers", "bengals", "ufc"];
+const TEAM_ORDER = ["colts", "pacers", "reds", "ufc"];
 const STORAGE_KEY = "ward-sports-snapshot-v1";
 const HINT_KEY = "ward-sports-install-hint";
 const ET = "America/New_York";
@@ -67,7 +67,7 @@ async function refresh({ manual }) {
   if (state.loading) return;
   state.loading = true;
   refreshBtn.disabled = true;
-  refreshBtn.textContent = "Updating";
+  refreshBtn.textContent = "Hailing";
   try {
     const live = await buildLiveSnapshot();
     state.snapshot = live;
@@ -85,7 +85,7 @@ async function refresh({ manual }) {
   } finally {
     state.loading = false;
     refreshBtn.disabled = false;
-    refreshBtn.textContent = "Refresh";
+    refreshBtn.textContent = "Commune";
     paint({ keepScroll: true });
     scheduleLiveTick();
   }
@@ -140,11 +140,16 @@ function paint({ keepScroll = false } = {}) {
     : [];
   const y = keepScroll ? window.scrollY : 0;
   const snapshot = state.snapshot;
+  document.documentElement.dataset.team = state.teamId || "colts";
   renderStatus();
   if (!snapshot) {
     teamsEl.replaceChildren();
     sectionsEl.replaceChildren();
-    mainEl.replaceChildren(el("p", { class: "banner", text: state.error || "Consulting the Codex…" }));
+    const waiting = !state.error;
+    mainEl.replaceChildren(el("p", {
+      class: waiting ? "empty candle" : "banner",
+      text: state.error || "Consulting the Codex…",
+    }));
     return;
   }
   renderTeams(snapshot);
@@ -174,7 +179,7 @@ function renderStatus() {
   } else if (state.source === "saved") {
     updatedEl.textContent = when ? `Saved · ${when}` : "Saved copy";
   } else {
-    updatedEl.textContent = "Eastern time";
+    updatedEl.textContent = "";
   }
   statusEl.replaceChildren();
   if (!state.error) return;
@@ -186,14 +191,18 @@ function renderTeams(snapshot) {
     const active = id === state.teamId;
     const label = id === "ufc" ? "UFC" : snapshot.teams.find((team) => team.id === id)?.shortName || id;
     const league = id === "ufc" ? "Cards" : snapshot.teams.find((team) => team.id === id)?.league || "";
+    const abbr = id === "ufc" ? "UFC" : snapshot.teams.find((team) => team.id === id)?.abbr || label.slice(0, 3).toUpperCase();
     return el("button", {
       type: "button",
       class: `team-btn team-${id}${active ? " is-active" : ""}`,
       "aria-pressed": active ? "true" : "false",
       onClick: () => selectTeam(id),
     }, [
-      el("span", { class: "team-name", text: label }),
-      el("span", { class: "team-league", text: league }),
+      el("span", { class: "shield", "aria-hidden": "true", text: abbr }),
+      el("span", { class: "team-copy" }, [
+        el("span", { class: "team-name", text: label }),
+        el("span", { class: "team-league", text: league }),
+      ]),
     ]);
   });
   teamsEl.replaceChildren(...buttons);
@@ -215,19 +224,19 @@ function renderClub(team) {
   }
   renderSectionNav([
     ["next", "Next"],
-    ["recent", "Results"],
-    ["schedule", "Schedule"],
-    ["standings", "Table"],
+    ["recent", "Reports"],
+    ["schedule", "Log"],
+    ["standings", "Rankings"],
   ]);
   const upcoming = team.schedule.filter((game) => game.status === "scheduled" || game.status === "postponed" || game.status === "in");
   const played = team.schedule.filter((game) => game.status === "final");
-  const cap = team.league === "NBA" ? 8 : upcoming.length;
+  const cap = team.league === "NFL" ? upcoming.length : 8;
   mainEl.replaceChildren(
-    section("next", "Next battle", nextCard(team)),
-    section("recent", "Recent results", team.recent.length
+    section("next", "Next Engagement", "The next game.", nextCard(team)),
+    section("recent", "After-Action Reports", "The latest final scores.", team.recent.length
       ? el("div", { class: "stack" }, team.recent.map((game) => gameRow(game, team)))
       : empty("No final scores yet.")),
-    section("schedule", "Schedule", [
+    section("schedule", "Campaign Log", "The rest of the calendar.", [
       team.byeWeek ? el("p", { class: "note", text: `Bye week ${team.byeWeek}` }) : null,
       upcoming.length
         ? el("div", { class: "stack" }, upcoming.slice(0, cap).map((game) => gameRow(game, team)))
@@ -239,26 +248,26 @@ function renderClub(team) {
         ? details(`played-${team.id}`, `Played games (${played.length})`, played.slice().reverse().map((game) => gameRow(game, team)))
         : null,
     ]),
-    section("standings", team.standingName || "Standings", standingsTable(team)),
+    section("standings", "Sector Rankings", team.standingName || "Division table.", standingsTable(team)),
   );
 }
 
 function renderUfc(ufc) {
   renderSectionNav([
     ["next", "Next"],
-    ["recent", "Recent"],
-    ["schedule", "Schedule"],
+    ["recent", "Reports"],
+    ["schedule", "Log"],
   ]);
   if (!ufc) {
     mainEl.replaceChildren(el("p", { class: "banner", text: "UFC data is not in this copy." }));
     return;
   }
   mainEl.replaceChildren(
-    section("next", "Next card", ufc.nextEvent ? eventCard(ufc.nextEvent, { featured: true }) : empty("No upcoming UFC card in this window.")),
-    section("recent", "Recent cards", ufc.recent.length
+    section("next", "Arena of Champions", "The next card.", ufc.nextEvent ? eventCard(ufc.nextEvent, { featured: true }) : empty("No upcoming UFC card in this window.")),
+    section("recent", "After-Action Reports", "Finished cards.", ufc.recent.length
       ? el("div", { class: "stack" }, ufc.recent.map((event) => eventCard(event, { featured: false })))
       : empty("No recent UFC cards in this window.")),
-    section("schedule", "Schedule", ufc.schedule.length
+    section("schedule", "Campaign Log", "Cards in this window.", ufc.schedule.length
       ? el("div", { class: "stack" }, ufc.schedule.map((event) => eventLine(event)))
       : empty("No UFC events in this window.")),
   );
@@ -279,16 +288,19 @@ function nextCard(team) {
   const place = game.ours === "home" ? "Home" : game.ours === "away" ? "Away" : game.neutralSite ? "Neutral" : "";
   return el("article", { class: `battle-card is-${game.status}` }, [
     el("p", { class: "identity" }, [
-      logo(team.logo, team.name, 36),
+      logo(team.logo, team.name, 36, team.abbr),
       el("span", {}, [
         el("span", { class: "identity-name", text: team.name }),
         el("span", { class: "identity-meta", text: [team.record, team.standingName, team.seed ? `Seed ${team.seed}` : "", team.streak].filter(Boolean).join(" · ") }),
       ]),
     ]),
-    el("p", { class: "when", text: [when.date, game.timeValid ? `${when.time} ${when.zone}` : "Time TBD"].filter(Boolean).join(" · ") }),
+    el("p", { class: "when" }, [
+      el("span", { class: "wax", text: when.date }),
+      el("span", { class: "when-time", text: game.timeValid ? `${when.time} ${when.zone}` : "Time TBD" }),
+    ]),
     el("div", { class: "scoreboard" }, [sideRow(game.away, game, "away"), sideRow(game.home, game, "home")]),
     el("p", { class: "meta" }, [
-      game.status === "in" ? el("span", { class: "live-pill", text: "Live" }) : null,
+      game.status === "in" ? el("span", { class: "live-pill", "aria-label": "LIVE", text: "In Battle" }) : null,
       el("span", { text: statusLine(game) }),
     ]),
     el("p", { class: "meta dim", text: [place, game.venue, game.broadcast].filter(Boolean).join(" · ") }),
@@ -298,7 +310,7 @@ function nextCard(team) {
 function sideRow(side, game, which) {
   const ours = game.ours === which;
   return el("div", { class: `side${ours ? " is-ours" : ""}` }, [
-    logo(side.logo, side.name, 44),
+    logo(side.logo, side.name, 44, side.abbr),
     el("span", { class: "side-name" }, [
       el("span", { class: "abbr", text: side.abbr || side.shortName }),
       el("span", { class: "full", text: side.name }),
@@ -329,7 +341,7 @@ function gameRow(game, team) {
 function miniSide(side, game) {
   const ours = (game.ours === "home" && side === game.home) || (game.ours === "away" && side === game.away);
   return el("span", { class: `mini${ours ? " is-ours" : ""}` }, [
-    logo(side.logo, side.abbr, 28),
+    logo(side.logo, side.abbr, 28, side.abbr),
     el("span", { text: side.abbr }),
   ]);
 }
@@ -351,7 +363,7 @@ function standingsTable(team) {
       ])),
       el("tbody", {}, team.standings.map((row) => el("tr", { class: row.ours ? "is-ours" : "" }, [
         el("th", { scope: "row" }, [
-          logo(row.logo, row.name, 24),
+          logo(row.logo, row.name, 24, row.abbr),
           el("span", { text: row.name || row.abbr }),
         ]),
         el("td", { text: formatRecord(row) }),
@@ -368,18 +380,26 @@ function eventCard(event, { featured }) {
   const main = fights.filter((fight) => fight.card === "main" && !fight.mainEvent);
   const prelims = fights.filter((fight) => fight.card !== "main");
   const mainEvent = fights.find((fight) => fight.mainEvent);
+  const lead = [mainEvent, ...(featured ? main : [])].filter(Boolean);
   return el("article", { class: `battle-card is-${event.status}` }, [
     featured ? el("p", { class: "kicker", text: event.shortName || "UFC" }) : null,
     el("h3", { class: "event-name", text: event.name }),
-    el("p", { class: "when", text: [when.date, event.timeValid ? `${when.time} ${when.zone}` : "Time TBD"].join(" · ") }),
-    el("p", { class: "meta dim", text: [statusLabel(event.status), event.venue, event.broadcast].filter(Boolean).join(" · ") }),
-    mainEvent ? el("div", { class: "fights" }, [fightRow(mainEvent)]) : null,
-    featured && main.length ? el("div", { class: "fights" }, main.map((fight) => fightRow(fight))) : null,
+    featured
+      ? el("p", { class: "when" }, [
+        el("span", { class: "wax", text: when.date }),
+        el("span", { class: "when-time", text: event.timeValid ? `${when.time} ${when.zone}` : "Time TBD" }),
+      ])
+      : el("p", { class: "when", text: [when.date, event.timeValid ? `${when.time} ${when.zone}` : "Time TBD"].join(" · ") }),
+    el("p", { class: "meta" }, [
+      event.status === "in" ? el("span", { class: "live-pill", "aria-label": "LIVE", text: "In Battle" }) : null,
+      el("span", { class: "dim", text: [event.status === "in" ? "" : statusLabel(event.status), event.venue, event.broadcast].filter(Boolean).join(" · ") }),
+    ]),
+    lead.length ? el("div", { class: "fights" }, withSkulls(lead.map((fight) => fightRow(fight)))) : null,
     featured && prelims.length
-      ? details(`prelim-${event.id}`, `Prelims (${prelims.length})`, prelims.map((fight) => fightRow(fight)))
+      ? details(`prelim-${event.id}`, `Prelims (${prelims.length})`, withSkulls(prelims.map((fight) => fightRow(fight))))
       : null,
     !featured && fights.length > 1
-      ? details(`card-${event.id}`, `Full card (${fights.length})`, fights.map((fight) => fightRow(fight)))
+      ? details(`card-${event.id}`, `Full card (${fights.length})`, withSkulls(fights.map((fight) => fightRow(fight))))
       : null,
     fights.length ? null : empty("Card not posted yet."),
   ]);
@@ -409,7 +429,7 @@ function fightRow(fight) {
       fighter.flag ? logo(fighter.flag, fighter.country || "", 22) : null,
       el("span", { class: "fighter-name", text: fighter.name }),
       fighter.record ? el("span", { class: "record", text: fighter.record }) : null,
-      fighter.winner ? el("span", { class: "win-mark", text: "W" }) : null,
+      fighter.winner ? el("span", { class: "win-mark", "aria-label": "Winner" }, [laurel(), el("span", { class: "win-letter", text: "W" })]) : null,
     ]))),
   ]);
 }
@@ -421,9 +441,12 @@ function methodLine(fight) {
   return fight.method || "Final";
 }
 
-function section(id, title, content) {
+function section(id, title, subtitle, content) {
   return el("section", { id, class: "block" }, [
-    el("h2", { text: title }),
+    el("div", { class: "section-head" }, [
+      el("h2", {}, [ruleIcon(), el("span", { text: title }), ruleIcon()]),
+      subtitle ? el("p", { class: "section-sub", text: subtitle }) : null,
+    ]),
     ...(Array.isArray(content) ? content : [content]),
   ]);
 }
@@ -439,13 +462,52 @@ function empty(text) {
   return el("p", { class: "empty", text });
 }
 
-function logo(src, alt, size) {
-  if (!src) return el("span", { class: "logo-fallback", style: `width:${size}px;height:${size}px` });
-  const img = el("img", { class: "logo", src, alt, width: String(size), height: String(size) });
-  img.addEventListener("error", () => {
-    img.replaceWith(el("span", { class: "logo-fallback", style: `width:${size}px;height:${size}px` }));
+function logo(src, alt, size, abbr) {
+  const fallback = () => el("span", {
+    class: "shield shield-plain",
+    style: `width:${size}px;height:${Math.round(size * 1.15)}px`,
+    "aria-hidden": "true",
+    text: (abbr || "").slice(0, 3).toUpperCase(),
   });
+  if (!src) return fallback();
+  const img = el("img", { class: "logo", src, alt, width: String(size), height: String(size) });
+  img.addEventListener("error", () => img.replaceWith(fallback()));
   return img;
+}
+
+function withSkulls(rows) {
+  const nodes = [];
+  for (const row of rows) {
+    if (!row) continue;
+    if (nodes.length) nodes.push(el("div", { class: "skull-rule", "aria-hidden": "true" }, [skull()]));
+    nodes.push(row);
+  }
+  return nodes;
+}
+
+function svgEl(viewBox, className, markup) {
+  const node = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+  node.setAttribute("viewBox", viewBox);
+  node.setAttribute("class", className);
+  node.setAttribute("aria-hidden", "true");
+  node.innerHTML = markup;
+  return node;
+}
+
+function ruleIcon() {
+  return svgEl("0 0 32 16", "rule-icon", `<path fill="currentColor" d="M16 9 11 5 5 7l5 2-5 2 6-1 3 3zM16 9l5-4 6 2-5 2 5 2-6-1-3 3zM14.2 4.2 16 2l1.8 2.2L17 11l-1 2-1-2z"/>`);
+}
+
+function skull() {
+  return svgEl("0 0 24 16", "skull", `<path fill="currentColor" d="M12 1.2c3 0 5.2 2 5.2 4.8 0 1.5-.6 2.6-1.4 3.3V12H8.2V9.3C7.4 8.6 6.8 7.5 6.8 6 6.8 3.2 9 1.2 12 1.2zM9.4 5.2a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3zm5.2 0a1.15 1.15 0 1 0 0 2.3 1.15 1.15 0 0 0 0-2.3zM9.6 10.6h1.2V13H9.6zm2 0H13v2.4h-1.4zm2.2 0h1.2V13h-1.2z"/>`);
+}
+
+function laurel() {
+  return svgEl("0 0 36 28", "laurel", `
+    <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M12 24c-1.2-5.2.4-10.2 4.6-14.2"/>
+    <path fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" d="M24 24c1.2-5.2-.4-10.2-4.6-14.2"/>
+    <path fill="currentColor" d="M11.2 20.2 7.4 19l2.6-2.2 1.2 3.4zm.6-4.2L8.6 14.6l3.2-1 .8 3.4zm1.2-4.1-2.6-2.2 3.4-.4.2 2.6zM24.8 20.2 28.6 19l-2.6-2.2-1.2 3.4zm-.6-4.2 3.2-1.4-3.2-1-.8 2.4zm-1.2-4.1 2.6-2.2-3.4-.4-.2 2.6z"/>
+  `);
 }
 
 function displayScore(game, side) {
@@ -470,7 +532,7 @@ function statusLine(game) {
   if (game.status === "final") return "Final";
   if (game.status === "postponed") return "Postponed";
   if (game.status === "canceled") return "Canceled";
-  return game.timeValid ? "Upcoming" : "Time TBD";
+  return "Upcoming";
 }
 
 function statusLabel(status) {

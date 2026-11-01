@@ -1,4 +1,4 @@
-const CACHE = "ward-sports-v1";
+const CACHE = "ward-sports-v2";
 
 const ASSETS = [
   "./",

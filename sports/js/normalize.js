@@ -27,13 +27,13 @@ export const TEAMS = [
     abbr: "IND",
   },
   {
-    id: "bengals",
-    league: "NFL",
-    sport: "football",
-    leagueSlug: "nfl",
-    espnTeamId: "4",
-    name: "Cincinnati Bengals",
-    shortName: "Bengals",
+    id: "reds",
+    league: "MLB",
+    sport: "baseball",
+    leagueSlug: "mlb",
+    espnTeamId: "17",
+    name: "Cincinnati Reds",
+    shortName: "Reds",
     abbr: "CIN",
   },
 ];
@@ -386,9 +386,34 @@ export function ufcDateWindow(now = new Date()) {
   return { start: ymd(start), end: ymd(end) };
 }
 
-export function endpointFor(kind, team, window) {
+export function scheduleHasOpenGame(schedule) {
+  return asArray(schedule?.events).some((event) => {
+    const state = event?.competitions?.[0]?.status?.type?.state || "";
+    return state === "pre" || state === "in";
+  });
+}
+
+export function mergeScheduleFeeds(base, extra) {
+  const events = asArray(base?.events).slice();
+  const ids = new Set(events.map((event) => String(event.id)));
+  for (const event of asArray(extra?.events)) {
+    if (!ids.has(String(event.id))) events.push(event);
+  }
+  return {
+    ...(base || {}),
+    team: base?.team || extra?.team || null,
+    byeWeek: base?.byeWeek ?? extra?.byeWeek ?? null,
+    events,
+  };
+}
+
+export function endpointFor(kind, team, extra) {
   if (kind === "schedule") {
-    return `https://site.api.espn.com/apis/site/v2/sports/${team.sport}/${team.leagueSlug}/teams/${team.espnTeamId}/schedule`;
+    const params = new URLSearchParams();
+    if (extra?.season != null) params.set("season", String(extra.season));
+    if (extra?.seasontype != null) params.set("seasontype", String(extra.seasontype));
+    const qs = params.toString();
+    return `https://site.api.espn.com/apis/site/v2/sports/${team.sport}/${team.leagueSlug}/teams/${team.espnTeamId}/schedule${qs ? `?${qs}` : ""}`;
   }
   if (kind === "scoreboard") {
     return `https://site.api.espn.com/apis/site/v2/sports/${team.sport}/${team.leagueSlug}/scoreboard`;
@@ -397,7 +422,7 @@ export function endpointFor(kind, team, window) {
     return `https://site.api.espn.com/apis/v2/sports/${team.sport}/${team.leagueSlug}/standings?level=3`;
   }
   if (kind === "ufc") {
-    return `https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=${window.start}-${window.end}`;
+    return `https://site.api.espn.com/apis/site/v2/sports/mma/ufc/scoreboard?dates=${extra.start}-${extra.end}`;
   }
   throw new Error(`Unknown endpoint ${kind}`);
 }
@@ -406,7 +431,7 @@ export function assertSnapshot(snapshot) {
   const problems = [];
   if (!snapshot || snapshot.schemaVersion !== 1) problems.push("schemaVersion must be 1");
   const teams = asArray(snapshot?.teams);
-  for (const id of ["colts", "pacers", "bengals"]) {
+  for (const id of ["colts", "pacers", "reds"]) {
     const team = teams.find((item) => item.id === id);
     if (!team) {
       problems.push(`missing team ${id}`);

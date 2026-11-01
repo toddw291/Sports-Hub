@@ -1,6 +1,6 @@
 # Sports Hub
 
-Phone scoreboard for Todd Ward in Indianapolis. It follows the Indianapolis Colts, the Indiana Pacers, the Cincinnati Bengals, and UFC cards. Every time is US Eastern.
+Phone scoreboard for Todd Ward in Indianapolis. It follows the Indianapolis Colts, the Indiana Pacers, the Cincinnati Reds, and UFC cards. Every time is US Eastern.
 
 The scoreboard is a Progressive Web App in the `sports/` folder. You can put it on an iPhone or Android home screen and it opens full screen, with its own icon. This repository can hold other small apps later. The page at the root is only a door into `/sports`.
 
@@ -46,14 +46,16 @@ The phone asks ESPN’s public scoreboard directly. No account and no paid key. 
 
 Checked feeds:
 
-- NFL and NBA team schedules, current scoreboard, and division standings (`?level=3`)
+- NFL, NBA, and MLB team schedules, current scoreboard, and division standings (`?level=3`)
 - UFC scoreboard for a range of dates, which includes Fight Nights and numbered cards
+
+In the MLB offseason the Reds’ default schedule is empty. The app then uses the regular-season slate and, when ESPN has posted it, next year’s opening day. Standings stay on the screen when the standings feed still has them.
 
 The exact links are in [sports/data/README.md](sports/data/README.md).
 
 If ESPN does not answer, the app shows the last copy it saved on the phone. If the phone has never saved one, it reads `sports/data/snapshot.json` from this site.
 
-Tap **Refresh** any time. If a game or fight is live, the page also refreshes about every 30 seconds while it is on screen.
+Tap **Commune** (the red seal) any time. If a game or fight is live, the page also refreshes about every 30 seconds while it is on screen.
 
 A service worker stores the app shell (pages, fonts, icons, and the snapshot) so a later visit still opens when the network is gone. Scores from the last successful refresh stay in the phone’s local storage.
 

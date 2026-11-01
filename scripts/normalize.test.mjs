@@ -2,13 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   TEAMS,
+  endpointFor,
   fightMethod,
   findStandingGroup,
+  mergeScheduleFeeds,
   normalizeGame,
   normalizeTeam,
   normalizeUfc,
   readScore,
   readStatus,
+  scheduleHasOpenGame,
 } from "../sports/js/normalize.js";
 
 const colts = TEAMS[0];
@@ -167,6 +170,52 @@ test("drops Contender Series and puts the main event first", () => {
 
 test("findStandingGroup returns null when the table is missing", () => {
   assert.equal(findStandingGroup(null, "IND"), null);
+});
+
+test("follows the Reds, and an offseason slate still has a next game and last result", () => {
+  assert.deepEqual(TEAMS.map((team) => team.id), ["colts", "pacers", "reds"]);
+  const reds = TEAMS[2];
+  assert.equal(reds.league, "MLB");
+  assert.equal(reds.espnTeamId, "17");
+  assert.equal(
+    endpointFor("schedule", reds),
+    "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/17/schedule",
+  );
+  assert.equal(
+    endpointFor("schedule", reds, { season: 2027, seasontype: 2 }),
+    "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/teams/17/schedule?season=2027&seasontype=2",
+  );
+
+  const finished = {
+    season: { year: 2026, type: 2 },
+    team: { abbreviation: "CIN", displayName: "Cincinnati Reds" },
+    events: [finalEvent("100", "2026-09-27T19:07Z", "CIN", "17", "1", "TOR", "5", "14")],
+  };
+  assert.equal(scheduleHasOpenGame(finished), false);
+  const opener = {
+    events: [{
+      id: "200",
+      date: "2027-03-25T04:00Z",
+      competitions: [{
+        timeValid: false,
+        status: { type: { name: "STATUS_SCHEDULED", state: "pre", shortDetail: "TBD" } },
+        competitors: [
+          { homeAway: "home", team: { id: "17", abbreviation: "CIN", displayName: "Cincinnati Reds" } },
+          { homeAway: "away", team: { id: "24", abbreviation: "STL", displayName: "St. Louis Cardinals" } },
+        ],
+      }],
+    }],
+  };
+  const merged = mergeScheduleFeeds(finished, opener);
+  assert.equal(scheduleHasOpenGame(merged), true);
+  const team = normalizeTeam({ team: reds, schedule: merged, scoreboard: null, standings: null });
+  assert.equal(team.nextGame.id, "200");
+  assert.equal(team.nextGame.timeValid, false);
+  assert.equal(team.nextGame.ours, "home");
+  assert.equal(team.nextGame.home.score, null);
+  assert.equal(team.recent[0].id, "100");
+  assert.equal(team.recent[0].away.score, "1");
+  assert.equal(team.record, "0-1");
 });
 
 test("hides 0-0 placeholder scores before tipoff", () => {
