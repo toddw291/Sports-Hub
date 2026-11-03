@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-02T11:57:40.256Z",
+  "updatedAt": "2026-11-03T11:52:46.749Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -763,11 +763,11 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "2-5",
+      "record": "2-6",
       "wins": 2,
-      "losses": 5,
+      "losses": 6,
       "ties": 0,
-      "streak": "L4",
+      "streak": "L5",
       "seed": "12",
       "standingName": "Central",
       "conference": "Eastern Conference",
@@ -777,11 +777,11 @@
           "name": "Bulls",
           "fullName": "Chicago Bulls",
           "wins": 1,
-          "losses": 5,
+          "losses": 6,
           "ties": null,
-          "pct": ".167",
-          "streak": "L4",
-          "diff": "-95",
+          "pct": ".143",
+          "streak": "L5",
+          "diff": "-114",
           "seed": "13",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
@@ -791,11 +791,11 @@
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
           "wins": 1,
-          "losses": 5,
+          "losses": 6,
           "ties": null,
-          "pct": ".167",
-          "streak": "L2",
-          "diff": "-79",
+          "pct": ".143",
+          "streak": "L3",
+          "diff": "-91",
           "seed": "14",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
@@ -805,11 +805,11 @@
           "name": "Pacers",
           "fullName": "Indiana Pacers",
           "wins": 2,
-          "losses": 5,
+          "losses": 6,
           "ties": null,
-          "pct": ".286",
-          "streak": "L4",
-          "diff": "-27",
+          "pct": ".250",
+          "streak": "L5",
+          "diff": "-31",
           "seed": "12",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
@@ -819,12 +819,12 @@
           "name": "Cavaliers",
           "fullName": "Cleveland Cavaliers",
           "wins": 4,
-          "losses": 2,
+          "losses": 3,
           "ties": null,
-          "pct": ".667",
-          "streak": "W1",
-          "diff": "+30",
-          "seed": "4",
+          "pct": ".571",
+          "streak": "L1",
+          "diff": "+25",
+          "seed": "6",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
         },
@@ -832,12 +832,12 @@
           "abbr": "DET",
           "name": "Pistons",
           "fullName": "Detroit Pistons",
-          "wins": 5,
+          "wins": 6,
           "losses": 1,
           "ties": null,
-          "pct": ".833",
-          "streak": "W2",
-          "diff": "+48",
+          "pct": ".857",
+          "streak": "W3",
+          "diff": "+81",
           "seed": "2",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
           "ours": false
@@ -845,15 +845,24 @@
       ],
       "byeWeek": null,
       "nextGame": {
-        "id": "401909909",
-        "start": "2026-11-03T00:30Z",
+        "id": "401909927",
+        "start": "2026-11-05T01:00Z",
         "status": "scheduled",
-        "detail": "11/2 - 7:30 PM EST",
+        "detail": "11/4 - 8:00 PM EST",
         "timeValid": true,
-        "venue": "Gainbridge Fieldhouse",
-        "broadcast": "NBA League Pass",
+        "venue": "FedExForum",
+        "broadcast": "DAZN MEM",
         "neutralSite": false,
         "home": {
+          "id": "29",
+          "abbr": "MEM",
+          "name": "Memphis Grizzlies",
+          "shortName": "Grizzlies",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
+        },
+        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indiana Pacers",
@@ -862,18 +871,38 @@
           "winner": false,
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
-        "away": {
-          "id": "1",
-          "abbr": "ATL",
-          "name": "Atlanta Hawks",
-          "shortName": "Hawks",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
-        },
-        "ours": "home"
+        "ours": "away"
       },
       "recent": [
+        {
+          "id": "401909909",
+          "start": "2026-11-03T00:30Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "venue": "Gainbridge Fieldhouse",
+          "broadcast": "NBA League Pass",
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "104",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          },
+          "away": {
+            "id": "1",
+            "abbr": "ATL",
+            "name": "Atlanta Hawks",
+            "shortName": "Hawks",
+            "score": "108",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/atl.png"
+          },
+          "ours": "home"
+        },
         {
           "id": "401909904",
           "start": "2026-11-01T22:00Z",
@@ -881,7 +910,7 @@
           "detail": "Final",
           "timeValid": true,
           "venue": "Gainbridge Fieldhouse",
-          "broadcast": "NBA League Pass, DAZN (YES)",
+          "broadcast": "NBA League Pass",
           "neutralSite": false,
           "home": {
             "id": "11",
@@ -890,7 +919,7 @@
             "shortName": "Pacers",
             "score": "90",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "17",
@@ -899,7 +928,7 @@
             "shortName": "Nets",
             "score": "98",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/bkn.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png"
           },
           "ours": "home"
         },
@@ -986,35 +1015,6 @@
             "shortName": "Pacers",
             "score": "102",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "ours": "away"
-        },
-        {
-          "id": "401909862",
-          "start": "2026-10-25T22:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "venue": "Barclays Center",
-          "broadcast": "NBA League Pass",
-          "neutralSite": false,
-          "home": {
-            "id": "17",
-            "abbr": "BKN",
-            "name": "Brooklyn Nets",
-            "shortName": "Nets",
-            "score": "109",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "136",
-            "winner": true,
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
@@ -1202,7 +1202,7 @@
           "detail": "Final",
           "timeValid": true,
           "venue": "Gainbridge Fieldhouse",
-          "broadcast": "NBA League Pass, DAZN (YES)",
+          "broadcast": "NBA League Pass",
           "neutralSite": false,
           "home": {
             "id": "11",
@@ -1211,7 +1211,7 @@
             "shortName": "Pacers",
             "score": "90",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "17",
@@ -1220,15 +1220,15 @@
             "shortName": "Nets",
             "score": "98",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/bkn.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/bkn.png"
           },
           "ours": "home"
         },
         {
           "id": "401909909",
           "start": "2026-11-03T00:30Z",
-          "status": "scheduled",
-          "detail": "11/2 - 7:30 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
           "venue": "Gainbridge Fieldhouse",
           "broadcast": "NBA League Pass",
@@ -1238,18 +1238,18 @@
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
+            "score": "104",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "away": {
             "id": "1",
             "abbr": "ATL",
             "name": "Atlanta Hawks",
             "shortName": "Hawks",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
+            "score": "108",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/atl.png"
           },
           "ours": "home"
         },
@@ -13467,7 +13467,7 @@
               "country": "USA"
             },
             {
-              "name": "Jose Henrique",
+              "name": "José Souza",
               "record": "9-1-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
@@ -18007,7 +18007,7 @@
                 "country": "USA"
               },
               {
-                "name": "Jose Henrique",
+                "name": "José Souza",
                 "record": "9-1-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
