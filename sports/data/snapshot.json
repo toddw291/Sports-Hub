@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-03T11:52:46.749Z",
+  "updatedAt": "2026-11-04T11:58:35.020Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -99,7 +99,7 @@
           "shortName": "Colts",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
         },
         "away": {
           "id": "6",
@@ -108,7 +108,7 @@
           "shortName": "Cowboys",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png"
         },
         "ours": "home"
       },
@@ -129,7 +129,7 @@
             "shortName": "Jaguars",
             "score": "42",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png"
           },
           "away": {
             "id": "11",
@@ -138,7 +138,7 @@
             "shortName": "Colts",
             "score": "7",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
           },
           "ours": "away"
         },
@@ -479,7 +479,7 @@
             "shortName": "Jaguars",
             "score": "42",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/jax.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png"
           },
           "away": {
             "id": "11",
@@ -488,7 +488,7 @@
             "shortName": "Colts",
             "score": "7",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
           },
           "ours": "away"
         },
@@ -508,7 +508,7 @@
             "shortName": "Colts",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
           },
           "away": {
             "id": "6",
@@ -517,7 +517,7 @@
             "shortName": "Cowboys",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/dal.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/dal.png"
           },
           "ours": "home"
         },
@@ -860,7 +860,7 @@
           "shortName": "Grizzlies",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
         },
         "away": {
           "id": "11",
@@ -869,7 +869,7 @@
           "shortName": "Pacers",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
         },
         "ours": "away"
       },
@@ -890,7 +890,7 @@
             "shortName": "Pacers",
             "score": "104",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "1",
@@ -899,7 +899,7 @@
             "shortName": "Hawks",
             "score": "108",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/atl.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
           },
           "ours": "home"
         },
@@ -1240,7 +1240,7 @@
             "shortName": "Pacers",
             "score": "104",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "1",
@@ -1249,7 +1249,7 @@
             "shortName": "Hawks",
             "score": "108",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/atl.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
           },
           "ours": "home"
         },
@@ -1269,7 +1269,7 @@
             "shortName": "Grizzlies",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
           },
           "away": {
             "id": "11",
@@ -1278,7 +1278,7 @@
             "shortName": "Pacers",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "ours": "away"
         },
@@ -13190,32 +13190,6 @@
           ]
         },
         {
-          "id": "401928117",
-          "weightClass": "Welterweight",
-          "status": "scheduled",
-          "detail": "11/7 - 8:00 PM EST",
-          "method": null,
-          "finish": null,
-          "mainEvent": false,
-          "card": "main",
-          "fighters": [
-            {
-              "name": "Wellington Turman",
-              "record": "18-8-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-              "country": "Brazil"
-            },
-            {
-              "name": "Seokhyeon Ko",
-              "record": "13-3-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
-              "country": "South Korea"
-            }
-          ]
-        },
-        {
           "id": "401928113",
           "weightClass": "Light Heavyweight",
           "status": "scheduled",
@@ -13242,8 +13216,34 @@
           ]
         },
         {
-          "id": "401932011",
-          "weightClass": "Middleweight",
+          "id": "401928116",
+          "weightClass": "W Bantamweight",
+          "status": "scheduled",
+          "detail": "11/7 - 8:00 PM EST",
+          "method": null,
+          "finish": null,
+          "mainEvent": false,
+          "card": "main",
+          "fighters": [
+            {
+              "name": "Priscila Cachoeira",
+              "record": "13-9-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+              "country": "Brazil"
+            },
+            {
+              "name": "Nina Milošević",
+              "record": "9-1-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+              "country": "Serbia"
+            }
+          ]
+        },
+        {
+          "id": "401932012",
+          "weightClass": "Flyweight",
           "status": "scheduled",
           "detail": "11/7 - 8:00 PM EST",
           "method": null,
@@ -13252,18 +13252,44 @@
           "card": "prelim",
           "fighters": [
             {
-              "name": "Andre Petroski",
-              "record": "13-7-0",
+              "name": "Mitch Raposo",
+              "record": "11-3-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
               "country": "USA"
             },
             {
-              "name": "Mantas Kondratavičius",
-              "record": "9-1-0",
+              "name": "Marcos Degli",
+              "record": "15-3-0",
               "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
-              "country": "Lithuania"
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+              "country": "Brazil"
+            }
+          ]
+        },
+        {
+          "id": "401911642",
+          "weightClass": "Featherweight",
+          "status": "scheduled",
+          "detail": "11/7 - 5:00 PM EST",
+          "method": null,
+          "finish": null,
+          "mainEvent": false,
+          "card": "prelim",
+          "fighters": [
+            {
+              "name": "Keiichiro Nakamura",
+              "record": "8-1-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+              "country": "Japan"
+            },
+            {
+              "name": "Ollie Schmid",
+              "record": "4-3-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
+              "country": "New Zealand"
             }
           ]
         },
@@ -13320,32 +13346,6 @@
           ]
         },
         {
-          "id": "401932012",
-          "weightClass": "Flyweight",
-          "status": "scheduled",
-          "detail": "11/7 - 5:00 PM EST",
-          "method": null,
-          "finish": null,
-          "mainEvent": false,
-          "card": "prelim",
-          "fighters": [
-            {
-              "name": "Mitch Raposo",
-              "record": "11-3-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-              "country": "USA"
-            },
-            {
-              "name": "Marcos Degli",
-              "record": "15-3-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-              "country": "Brazil"
-            }
-          ]
-        },
-        {
           "id": "401928120",
           "weightClass": "Featherweight",
           "status": "scheduled",
@@ -13368,32 +13368,6 @@
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kgz.png",
               "country": "Kyrgyzstan"
-            }
-          ]
-        },
-        {
-          "id": "401911642",
-          "weightClass": "Featherweight",
-          "status": "scheduled",
-          "detail": "11/7 - 5:00 PM EST",
-          "method": null,
-          "finish": null,
-          "mainEvent": false,
-          "card": "prelim",
-          "fighters": [
-            {
-              "name": "Keiichiro Nakamura",
-              "record": "8-1-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
-              "country": "Japan"
-            },
-            {
-              "name": "Ollie Schmid",
-              "record": "4-3-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
-              "country": "New Zealand"
             }
           ]
         },
@@ -13424,8 +13398,8 @@
           ]
         },
         {
-          "id": "401928116",
-          "weightClass": "W Bantamweight",
+          "id": "401932011",
+          "weightClass": "Middleweight",
           "status": "scheduled",
           "detail": "11/7 - 5:00 PM EST",
           "method": null,
@@ -13434,18 +13408,44 @@
           "card": "prelim",
           "fighters": [
             {
-              "name": "Priscila Cachoeira",
-              "record": "13-9-0",
+              "name": "Andre Petroski",
+              "record": "13-7-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+              "country": "USA"
+            },
+            {
+              "name": "Mantas Kondratavičius",
+              "record": "9-1-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
+              "country": "Lithuania"
+            }
+          ]
+        },
+        {
+          "id": "401928117",
+          "weightClass": "Welterweight",
+          "status": "scheduled",
+          "detail": "11/7 - 5:00 PM EST",
+          "method": null,
+          "finish": null,
+          "mainEvent": false,
+          "card": "prelim",
+          "fighters": [
+            {
+              "name": "Wellington Turman",
+              "record": "18-8-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
               "country": "Brazil"
             },
             {
-              "name": "Nina Milošević",
-              "record": "9-1-0",
+              "name": "Seokhyeon Ko",
+              "record": "13-3-0",
               "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
-              "country": "Serbia"
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
+              "country": "South Korea"
             }
           ]
         },
@@ -17730,32 +17730,6 @@
             ]
           },
           {
-            "id": "401928117",
-            "weightClass": "Welterweight",
-            "status": "scheduled",
-            "detail": "11/7 - 8:00 PM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Wellington Turman",
-                "record": "18-8-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              },
-              {
-                "name": "Seokhyeon Ko",
-                "record": "13-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
-                "country": "South Korea"
-              }
-            ]
-          },
-          {
             "id": "401928113",
             "weightClass": "Light Heavyweight",
             "status": "scheduled",
@@ -17782,8 +17756,34 @@
             ]
           },
           {
-            "id": "401932011",
-            "weightClass": "Middleweight",
+            "id": "401928116",
+            "weightClass": "W Bantamweight",
+            "status": "scheduled",
+            "detail": "11/7 - 8:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Priscila Cachoeira",
+                "record": "13-9-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              },
+              {
+                "name": "Nina Milošević",
+                "record": "9-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+                "country": "Serbia"
+              }
+            ]
+          },
+          {
+            "id": "401932012",
+            "weightClass": "Flyweight",
             "status": "scheduled",
             "detail": "11/7 - 8:00 PM EST",
             "method": null,
@@ -17792,18 +17792,44 @@
             "card": "prelim",
             "fighters": [
               {
-                "name": "Andre Petroski",
-                "record": "13-7-0",
+                "name": "Mitch Raposo",
+                "record": "11-3-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
               },
               {
-                "name": "Mantas Kondratavičius",
-                "record": "9-1-0",
+                "name": "Marcos Degli",
+                "record": "15-3-0",
                 "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
-                "country": "Lithuania"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              }
+            ]
+          },
+          {
+            "id": "401911642",
+            "weightClass": "Featherweight",
+            "status": "scheduled",
+            "detail": "11/7 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Keiichiro Nakamura",
+                "record": "8-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+                "country": "Japan"
+              },
+              {
+                "name": "Ollie Schmid",
+                "record": "4-3-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
+                "country": "New Zealand"
               }
             ]
           },
@@ -17860,32 +17886,6 @@
             ]
           },
           {
-            "id": "401932012",
-            "weightClass": "Flyweight",
-            "status": "scheduled",
-            "detail": "11/7 - 5:00 PM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Mitch Raposo",
-                "record": "11-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Marcos Degli",
-                "record": "15-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              }
-            ]
-          },
-          {
             "id": "401928120",
             "weightClass": "Featherweight",
             "status": "scheduled",
@@ -17908,32 +17908,6 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kgz.png",
                 "country": "Kyrgyzstan"
-              }
-            ]
-          },
-          {
-            "id": "401911642",
-            "weightClass": "Featherweight",
-            "status": "scheduled",
-            "detail": "11/7 - 5:00 PM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Keiichiro Nakamura",
-                "record": "8-1-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
-                "country": "Japan"
-              },
-              {
-                "name": "Ollie Schmid",
-                "record": "4-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
-                "country": "New Zealand"
               }
             ]
           },
@@ -17964,8 +17938,8 @@
             ]
           },
           {
-            "id": "401928116",
-            "weightClass": "W Bantamweight",
+            "id": "401932011",
+            "weightClass": "Middleweight",
             "status": "scheduled",
             "detail": "11/7 - 5:00 PM EST",
             "method": null,
@@ -17974,18 +17948,44 @@
             "card": "prelim",
             "fighters": [
               {
-                "name": "Priscila Cachoeira",
-                "record": "13-9-0",
+                "name": "Andre Petroski",
+                "record": "13-7-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              },
+              {
+                "name": "Mantas Kondratavičius",
+                "record": "9-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
+                "country": "Lithuania"
+              }
+            ]
+          },
+          {
+            "id": "401928117",
+            "weightClass": "Welterweight",
+            "status": "scheduled",
+            "detail": "11/7 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Wellington Turman",
+                "record": "18-8-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
                 "country": "Brazil"
               },
               {
-                "name": "Nina Milošević",
-                "record": "9-1-0",
+                "name": "Seokhyeon Ko",
+                "record": "13-3-0",
                 "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
-                "country": "Serbia"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
+                "country": "South Korea"
               }
             ]
           },
@@ -18513,7 +18513,7 @@
             "id": "401927852",
             "weightClass": "Heavyweight",
             "status": "scheduled",
-            "detail": "11/21 - 1:00 PM EST",
+            "detail": "11/21 - 10:00 AM EST",
             "method": null,
             "finish": null,
             "mainEvent": false,
@@ -19078,6 +19078,58 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
                 "country": "Uzbekistan"
+              }
+            ]
+          },
+          {
+            "id": "401933122",
+            "weightClass": "Featherweight",
+            "status": "scheduled",
+            "detail": "2/6 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Joanderson Brito",
+                "record": "20-5-1",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              },
+              {
+                "name": "Kaan Ofli",
+                "record": "15-4-1",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                "country": "Australia"
+              }
+            ]
+          },
+          {
+            "id": "401933123",
+            "weightClass": "Featherweight",
+            "status": "scheduled",
+            "detail": "2/6 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "JooSang Yoo",
+                "record": "9-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
+                "country": "South Korea"
+              },
+              {
+                "name": "Marwan Rahiki",
+                "record": "9-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/mar.png",
+                "country": "Morocco"
               }
             ]
           }
