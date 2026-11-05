@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-04T11:58:35.020Z",
+  "updatedAt": "2026-11-05T11:59:41.472Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -763,12 +763,12 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "2-6",
-      "wins": 2,
+      "record": "3-6",
+      "wins": 3,
       "losses": 6,
       "ties": 0,
-      "streak": "L5",
-      "seed": "12",
+      "streak": "W1",
+      "seed": "11",
       "standingName": "Central",
       "conference": "Eastern Conference",
       "standings": [
@@ -777,12 +777,12 @@
           "name": "Bulls",
           "fullName": "Chicago Bulls",
           "wins": 1,
-          "losses": 6,
+          "losses": 7,
           "ties": null,
-          "pct": ".143",
-          "streak": "L5",
-          "diff": "-114",
-          "seed": "13",
+          "pct": ".125",
+          "streak": "L6",
+          "diff": "-144",
+          "seed": "14",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
         },
@@ -791,12 +791,12 @@
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
           "wins": 1,
-          "losses": 6,
+          "losses": 7,
           "ties": null,
-          "pct": ".143",
-          "streak": "L3",
-          "diff": "-91",
-          "seed": "14",
+          "pct": ".125",
+          "streak": "L4",
+          "diff": "-98",
+          "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
         },
@@ -804,13 +804,13 @@
           "abbr": "IND",
           "name": "Pacers",
           "fullName": "Indiana Pacers",
-          "wins": 2,
+          "wins": 3,
           "losses": 6,
           "ties": null,
-          "pct": ".250",
-          "streak": "L5",
-          "diff": "-31",
-          "seed": "12",
+          "pct": ".333",
+          "streak": "W1",
+          "diff": "-27",
+          "seed": "11",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
         },
@@ -819,11 +819,11 @@
           "name": "Cavaliers",
           "fullName": "Cleveland Cavaliers",
           "wins": 4,
-          "losses": 3,
+          "losses": 4,
           "ties": null,
-          "pct": ".571",
-          "streak": "L1",
-          "diff": "+25",
+          "pct": ".500",
+          "streak": "L2",
+          "diff": "+17",
           "seed": "6",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
@@ -833,11 +833,11 @@
           "name": "Pistons",
           "fullName": "Detroit Pistons",
           "wins": 6,
-          "losses": 1,
+          "losses": 2,
           "ties": null,
-          "pct": ".857",
-          "streak": "W3",
-          "diff": "+81",
+          "pct": ".750",
+          "streak": "L1",
+          "diff": "+75",
           "seed": "2",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
           "ours": false
@@ -845,35 +845,64 @@
       ],
       "byeWeek": null,
       "nextGame": {
-        "id": "401909927",
-        "start": "2026-11-05T01:00Z",
+        "id": "401909938",
+        "start": "2026-11-07T22:00Z",
         "status": "scheduled",
-        "detail": "11/4 - 8:00 PM EST",
+        "detail": "11/7 - 5:00 PM EST",
         "timeValid": true,
-        "venue": "FedExForum",
-        "broadcast": "DAZN MEM",
-        "neutralSite": false,
+        "venue": "Arena CDMX",
+        "broadcast": "NBA TV",
+        "neutralSite": true,
         "home": {
-          "id": "29",
-          "abbr": "MEM",
-          "name": "Memphis Grizzlies",
-          "shortName": "Grizzlies",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
-        },
-        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indiana Pacers",
           "shortName": "Pacers",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
-        "ours": "away"
+        "away": {
+          "id": "7",
+          "abbr": "DEN",
+          "name": "Denver Nuggets",
+          "shortName": "Nuggets",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png"
+        },
+        "ours": "home"
       },
       "recent": [
+        {
+          "id": "401909927",
+          "start": "2026-11-05T01:00Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "venue": "FedExForum",
+          "broadcast": "DAZN MEM",
+          "neutralSite": false,
+          "home": {
+            "id": "29",
+            "abbr": "MEM",
+            "name": "Memphis Grizzlies",
+            "shortName": "Grizzlies",
+            "score": "103",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
+          },
+          "away": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "107",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          },
+          "ours": "away"
+        },
         {
           "id": "401909909",
           "start": "2026-11-03T00:30Z",
@@ -989,35 +1018,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
           },
           "ours": "home"
-        },
-        {
-          "id": "401909872",
-          "start": "2026-10-27T00:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "venue": "Fiserv Forum",
-          "broadcast": "NBA League Pass",
-          "neutralSite": false,
-          "home": {
-            "id": "15",
-            "abbr": "MIL",
-            "name": "Milwaukee Bucks",
-            "shortName": "Bucks",
-            "score": "110",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "102",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "ours": "away"
         }
       ],
       "schedule": [
@@ -1256,8 +1256,8 @@
         {
           "id": "401909927",
           "start": "2026-11-05T01:00Z",
-          "status": "scheduled",
-          "detail": "11/4 - 8:00 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
           "venue": "FedExForum",
           "broadcast": "DAZN MEM",
@@ -1267,7 +1267,7 @@
             "abbr": "MEM",
             "name": "Memphis Grizzlies",
             "shortName": "Grizzlies",
-            "score": null,
+            "score": "103",
             "winner": false,
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
           },
@@ -1276,8 +1276,8 @@
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
-            "winner": false,
+            "score": "107",
+            "winner": true,
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "ours": "away"
@@ -13372,7 +13372,7 @@
           ]
         },
         {
-          "id": "401928114",
+          "id": "401933235",
           "weightClass": "Featherweight",
           "status": "scheduled",
           "detail": "11/7 - 5:00 PM EST",
@@ -13382,15 +13382,15 @@
           "card": "prelim",
           "fighters": [
             {
-              "name": "Lucas Brennan",
-              "record": "11-3-0",
+              "name": "Austin Bashi",
+              "record": "14-2-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
               "country": "USA"
             },
             {
-              "name": "Austin Bashi",
-              "record": "14-2-0",
+              "name": "Carlos Calderon",
+              "record": "11-4-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
               "country": "USA"
@@ -14858,383 +14858,6 @@
       }
     ],
     "schedule": [
-      {
-        "id": "600059993",
-        "name": "UFC Fight Night: Hooker vs. Parnasse",
-        "shortName": "UFC Fight Night",
-        "start": "2026-09-05T16:00Z",
-        "status": "final",
-        "detail": "Final",
-        "timeValid": true,
-        "venue": "Accor Arena, Paris",
-        "broadcast": "Paramount+",
-        "fights": [
-          {
-            "id": "401875226",
-            "weightClass": "Lightweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R1 2:35",
-            "mainEvent": true,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Dan Hooker",
-                "record": "24-15-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
-                "country": "New Zealand"
-              },
-              {
-                "name": "Salahdine Parnasse",
-                "record": "24-2-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              }
-            ]
-          },
-          {
-            "id": "401911286",
-            "weightClass": "Lightweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R1 1:40",
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Farés Ziam",
-                "record": "18-6-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              },
-              {
-                "name": "Axel Sola",
-                "record": "13-1-1",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              }
-            ]
-          },
-          {
-            "id": "401898006",
-            "weightClass": "Middleweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Michael Page",
-                "record": "26-3-0",
-                "winner": true,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
-              },
-              {
-                "name": "Nursulton Ruziboev",
-                "record": "37-10-2",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/uzb.png",
-                "country": "Uzbekistan"
-              }
-            ]
-          },
-          {
-            "id": "401914473",
-            "weightClass": "Welterweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Punahele Soriano",
-                "record": "13-5-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Daniil Donchenko",
-                "record": "16-2-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ukr.png",
-                "country": "Ukraine"
-              }
-            ]
-          },
-          {
-            "id": "401898007",
-            "weightClass": "Featherweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Submission",
-            "finish": "R3 3:07",
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Trevor Peek",
-                "record": "9-4-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Kurtis Campbell",
-                "record": "9-1-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
-                "country": "England"
-              }
-            ]
-          },
-          {
-            "id": "401911289",
-            "weightClass": "Featherweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R1 2:54",
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Muhammad Naimov",
-                "record": "13-5-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/tjk.png",
-                "country": "Tajikistan"
-              },
-              {
-                "name": "Losene Keita",
-                "record": "17-3-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bel.png",
-                "country": "Belgium"
-              }
-            ]
-          },
-          {
-            "id": "401902947",
-            "weightClass": "Featherweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Morgan Charrière",
-                "record": "21-13-1",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              },
-              {
-                "name": "Felipe Lima",
-                "record": "15-2-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              }
-            ]
-          },
-          {
-            "id": "401875227",
-            "weightClass": "Heavyweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R2 0:55",
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Ryan Spann",
-                "record": "24-12-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Mario Pinto",
-                "record": "13-0-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/por.png",
-                "country": "Portugal"
-              }
-            ]
-          },
-          {
-            "id": "401911288",
-            "weightClass": "Light Heavyweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R2 3:57",
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Modestas Bukauskas",
-                "record": "21-7-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ltu.png",
-                "country": "Lithuania"
-              },
-              {
-                "name": "Oumar Sy",
-                "record": "12-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              }
-            ]
-          },
-          {
-            "id": "401916275",
-            "weightClass": "Featherweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Nathaniel Wood",
-                "record": "23-7-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
-                "country": "England"
-              },
-              {
-                "name": "Pavel Andrusca",
-                "record": "9-0-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/mda.png",
-                "country": "Moldova"
-              }
-            ]
-          },
-          {
-            "id": "401914474",
-            "weightClass": "Flyweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Michael Aljarouj",
-                "record": "13-4-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              },
-              {
-                "name": "Fabia Sintes",
-                "record": "12-3-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
-                "country": "Spain"
-              }
-            ]
-          },
-          {
-            "id": "401911287",
-            "weightClass": "W Bantamweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Decision",
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Nora Cornolle",
-                "record": "10-4-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              },
-              {
-                "name": "Klaudia Syguła",
-                "record": "8-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/pol.png",
-                "country": "Poland"
-              }
-            ]
-          },
-          {
-            "id": "401902948",
-            "weightClass": "Middleweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "KO/TKO",
-            "finish": "R1 4:35",
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Luis Felipe Dias",
-                "record": "18-6-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              },
-              {
-                "name": "Matthieu Letho Duclos",
-                "record": "11-3-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              }
-            ]
-          },
-          {
-            "id": "401913130",
-            "weightClass": "W Strawweight",
-            "status": "final",
-            "detail": "Final",
-            "method": "Submission",
-            "finish": "R2 4:22",
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Sofia Montenegro",
-                "record": "6-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/arg.png",
-                "country": "Argentina"
-              },
-              {
-                "name": "Delphine Benouaich",
-                "record": "8-2-0",
-                "winner": true,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/fra.png",
-                "country": "France"
-              }
-            ]
-          }
-        ]
-      },
       {
         "id": "600060963",
         "name": "UFC 331: Van vs. Pantoja 2",
@@ -17912,7 +17535,7 @@
             ]
           },
           {
-            "id": "401928114",
+            "id": "401933235",
             "weightClass": "Featherweight",
             "status": "scheduled",
             "detail": "11/7 - 5:00 PM EST",
@@ -17922,15 +17545,15 @@
             "card": "prelim",
             "fighters": [
               {
-                "name": "Lucas Brennan",
-                "record": "11-3-0",
+                "name": "Austin Bashi",
+                "record": "14-2-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
               },
               {
-                "name": "Austin Bashi",
-                "record": "14-2-0",
+                "name": "Carlos Calderon",
+                "record": "11-4-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
