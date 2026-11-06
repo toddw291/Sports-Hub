@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-05T11:59:41.472Z",
+  "updatedAt": "2026-11-06T11:56:14.332Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -29,13 +29,13 @@
           "abbr": "JAX",
           "name": "Jaguars",
           "fullName": "Jacksonville Jaguars",
-          "wins": 5,
+          "wins": 6,
           "losses": 2,
           "ties": 0,
-          "pct": ".714",
-          "streak": "W1",
-          "diff": "+85",
-          "seed": "4",
+          "pct": ".750",
+          "streak": "W2",
+          "diff": "+108",
+          "seed": "3",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
           "ours": false
         },
@@ -890,7 +890,7 @@
             "shortName": "Grizzlies",
             "score": "103",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
           },
           "away": {
             "id": "11",
@@ -899,7 +899,7 @@
             "shortName": "Pacers",
             "score": "107",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
         },
@@ -1269,7 +1269,7 @@
             "shortName": "Grizzlies",
             "score": "103",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/mem.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
           },
           "away": {
             "id": "11",
@@ -1278,7 +1278,7 @@
             "shortName": "Pacers",
             "score": "107",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
         },
@@ -17886,6 +17886,32 @@
             ]
           },
           {
+            "id": "401931774",
+            "weightClass": "Lightweight",
+            "status": "scheduled",
+            "detail": "11/14 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Jared Gordon",
+                "record": "21-9-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              },
+              {
+                "name": "Melquizael Costa",
+                "record": "26-8-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              }
+            ]
+          },
+          {
             "id": "401922645",
             "weightClass": "W Bantamweight",
             "status": "scheduled",
@@ -17934,58 +17960,6 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/per.png",
                 "country": "Peru"
-              }
-            ]
-          },
-          {
-            "id": "401913648",
-            "weightClass": "Lightweight",
-            "status": "scheduled",
-            "detail": "11/14 - 5:00 PM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Nazim Sadykhov",
-                "record": "11-3-1",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
-                "country": "Azerbaijan"
-              },
-              {
-                "name": "Jefferson Nascimento",
-                "record": "13-1-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              }
-            ]
-          },
-          {
-            "id": "401931774",
-            "weightClass": "Lightweight",
-            "status": "scheduled",
-            "detail": "11/14 - 5:00 PM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Jared Gordon",
-                "record": "21-9-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Melquizael Costa",
-                "record": "26-8-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
               }
             ]
           },
@@ -18107,6 +18081,32 @@
             ]
           },
           {
+            "id": "401927855",
+            "weightClass": "Flyweight",
+            "status": "scheduled",
+            "detail": "11/21 - 1:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Kyoji Horiguchi",
+                "record": "36-6-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
+                "country": "Japan"
+              },
+              {
+                "name": "Asu Almabayev",
+                "record": "24-3-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
+                "country": "Kazakhstan"
+              }
+            ]
+          },
+          {
             "id": "401927851",
             "weightClass": "Middleweight",
             "status": "scheduled",
@@ -18133,6 +18133,32 @@
             ]
           },
           {
+            "id": "401927854",
+            "weightClass": "Bantamweight",
+            "status": "scheduled",
+            "detail": "11/21 - 1:00 PM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Aleksandre Topuria",
+                "record": "7-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png",
+                "country": "Georgia"
+              },
+              {
+                "name": "Santiago Luna",
+                "record": "8-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/mex.png",
+                "country": "Mexico"
+              }
+            ]
+          },
+          {
             "id": "401927852",
             "weightClass": "Heavyweight",
             "status": "scheduled",
@@ -18140,7 +18166,7 @@
             "method": null,
             "finish": null,
             "mainEvent": false,
-            "card": "main",
+            "card": "prelim",
             "fighters": [
               {
                 "name": "Shamil Gaziev",
@@ -18152,6 +18178,32 @@
               {
                 "name": "Tallison Teixeira",
                 "record": "9-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              }
+            ]
+          },
+          {
+            "id": "401927856",
+            "weightClass": "Flyweight",
+            "status": "scheduled",
+            "detail": "11/21 - 10:00 AM EST",
+            "method": null,
+            "finish": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Amir Albazi",
+                "record": "17-3-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
+                "country": "Iraq"
+              },
+              {
+                "name": "Alessandro Costa",
+                "record": "17-5-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
                 "country": "Brazil"
@@ -18181,84 +18233,6 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
                 "country": "Azerbaijan"
-              }
-            ]
-          },
-          {
-            "id": "401927854",
-            "weightClass": "Bantamweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Aleksandre Topuria",
-                "record": "7-1-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/geo.png",
-                "country": "Georgia"
-              },
-              {
-                "name": "Santiago Luna",
-                "record": "8-1-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/mex.png",
-                "country": "Mexico"
-              }
-            ]
-          },
-          {
-            "id": "401927855",
-            "weightClass": "Flyweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Kyoji Horiguchi",
-                "record": "36-6-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/jpn.png",
-                "country": "Japan"
-              },
-              {
-                "name": "Asu Almabayev",
-                "record": "24-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
-                "country": "Kazakhstan"
-              }
-            ]
-          },
-          {
-            "id": "401927856",
-            "weightClass": "Flyweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
-            "mainEvent": false,
-            "card": "prelim",
-            "fighters": [
-              {
-                "name": "Amir Albazi",
-                "record": "17-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
-                "country": "Iraq"
-              },
-              {
-                "name": "Alessandro Costa",
-                "record": "17-5-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
               }
             ]
           }
