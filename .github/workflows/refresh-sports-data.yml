@@ -21,11 +21,17 @@ jobs:
         with:
           node-version: "22"
 
+      - name: Capture the committed snapshot before download
+        run: cp sports/data/snapshot.json /tmp/previous-snapshot.json
+
       - name: Run unit checks
-        run: node --test scripts/normalize.test.mjs
+        run: node --test scripts/normalize.test.mjs scripts/validate-snapshot.test.mjs
 
       - name: Download the latest scores
         run: node scripts/build-snapshot.mjs
+
+      - name: Validate the fetched snapshot
+        run: node scripts/validate-snapshot.mjs sports/data/snapshot.json --previous /tmp/previous-snapshot.json
 
       - name: Commit the snapshot if scores changed
         run: |
