@@ -7,6 +7,7 @@ import { join, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 import {
   KNOWN_GAME_STATUSES,
+  parseStrictIsoUtc,
   validateSnapshot,
 } from "./validate-snapshot.mjs";
 
@@ -117,6 +118,60 @@ test("rejects bad team list, nonnumeric score, missing UFC, and bad updatedAt", 
 
   const invalidDate = baseSnapshot({ updatedAt: "not-a-date" });
   assert.match(validateSnapshot(invalidDate).join("\n"), /not a valid ISO date/);
+});
+
+test("updatedAt requires strict toISOString form and a real calendar date", () => {
+  assert.equal(parseStrictIsoUtc("2026-11-06T11:56:14.332Z"), Date.parse("2026-11-06T11:56:14.332Z"));
+  assert.equal(parseStrictIsoUtc("November 6, 2026"), null);
+  assert.equal(parseStrictIsoUtc("2026-02-30T00:00:00.000Z"), null);
+  assert.equal(parseStrictIsoUtc("2026-11-06T11:56:14Z"), null);
+  assert.equal(parseStrictIsoUtc("2026-13-01T00:00:00.000Z"), null);
+
+  const now = new Date("2026-11-07T00:00:00.000Z");
+  assert.match(
+    validateSnapshot(baseSnapshot({ updatedAt: "November 6, 2026" }), { now }).join("\n"),
+    /not a valid ISO date/,
+  );
+  assert.match(
+    validateSnapshot(baseSnapshot({ updatedAt: "2026-02-30T00:00:00.000Z" }), { now }).join("\n"),
+    /not a valid ISO date/,
+  );
+  assert.deepEqual(
+    validateSnapshot(baseSnapshot({ updatedAt: "2026-11-06T11:56:14.332Z" }), { now }),
+    [],
+  );
+});
+
+test("rejects missing nextGame and malformed or missing recent", () => {
+  const missingNext = baseSnapshot();
+  delete missingNext.teams[0].nextGame;
+  assert.match(
+    validateSnapshot(missingNext, { now: new Date("2026-11-07T00:00:00.000Z") }).join("\n"),
+    /colts\.nextGame must be present/,
+  );
+
+  const missingRecent = baseSnapshot();
+  delete missingRecent.teams[1].recent;
+  assert.match(
+    validateSnapshot(missingRecent, { now: new Date("2026-11-07T00:00:00.000Z") }).join("\n"),
+    /pacers\.recent must be an array/,
+  );
+
+  const badRecent = baseSnapshot();
+  badRecent.teams[2].recent = { id: "not-an-array" };
+  assert.match(
+    validateSnapshot(badRecent, { now: new Date("2026-11-07T00:00:00.000Z") }).join("\n"),
+    /reds\.recent must be an array/,
+  );
+
+  // Explicit null nextGame with empty recent remains valid for a single team.
+  const nullNext = baseSnapshot();
+  nullNext.teams[2].nextGame = null;
+  nullNext.teams[2].recent = [];
+  assert.deepEqual(
+    validateSnapshot(nullNext, { now: new Date("2026-11-07T00:00:00.000Z") }),
+    [],
+  );
 });
 
 test("rejects bad nextGame status and missing abbrs", () => {

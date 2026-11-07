@@ -19,8 +19,45 @@ export const KNOWN_GAME_STATUSES = Object.freeze([
   "canceled",
 ]);
 
+/** Exact shape of Date.prototype.toISOString() (how buildLiveSnapshot writes updatedAt). */
+const ISO_UTC_MS = /^(\d{4})-(\d{2})-(\d{2})T(\d{2}):(\d{2}):(\d{2})\.(\d{3})Z$/;
+
 function asArray(value) {
   return Array.isArray(value) ? value : [];
+}
+
+/**
+ * Parse a strict UTC ISO-8601 timestamp with milliseconds.
+ * Rejects non-ISO forms (e.g. "November 6, 2026") and impossible calendar dates
+ * that Date.parse would normalize (e.g. 2026-02-30).
+ * @returns {number|null} epoch ms, or null when invalid
+ */
+export function parseStrictIsoUtc(value) {
+  if (typeof value !== "string") return null;
+  const match = ISO_UTC_MS.exec(value);
+  if (!match) return null;
+  const year = Number(match[1]);
+  const month = Number(match[2]);
+  const day = Number(match[3]);
+  const hour = Number(match[4]);
+  const minute = Number(match[5]);
+  const second = Number(match[6]);
+  const ms = Number(match[7]);
+  if (hour > 23 || minute > 59 || second > 59) return null;
+  const time = Date.UTC(year, month - 1, day, hour, minute, second, ms);
+  const date = new Date(time);
+  if (
+    date.getUTCFullYear() !== year
+    || date.getUTCMonth() + 1 !== month
+    || date.getUTCDate() !== day
+    || date.getUTCHours() !== hour
+    || date.getUTCMinutes() !== minute
+    || date.getUTCSeconds() !== second
+    || date.getUTCMilliseconds() !== ms
+  ) {
+    return null;
+  }
+  return time;
 }
 
 function teamCoverage(team) {
@@ -85,8 +122,8 @@ export function validateSnapshot(snapshot, options = {}) {
   if (typeof snapshot.updatedAt !== "string" || snapshot.updatedAt.trim() === "") {
     errors.push("updatedAt must be a non-empty ISO date string");
   } else {
-    const parsed = Date.parse(snapshot.updatedAt);
-    if (Number.isNaN(parsed)) {
+    const parsed = parseStrictIsoUtc(snapshot.updatedAt);
+    if (parsed == null) {
       errors.push(`updatedAt is not a valid ISO date (got ${JSON.stringify(snapshot.updatedAt)})`);
     } else if (parsed > now.getTime()) {
       errors.push(`updatedAt must not be in the future (got ${snapshot.updatedAt})`);
@@ -112,11 +149,19 @@ export function validateSnapshot(snapshot, options = {}) {
       if (typeof team.record !== "string") {
         errors.push(`${id}.record must be a string (got ${JSON.stringify(team.record)})`);
       }
-      if (team.nextGame != null) {
+      // Generator always sets nextGame (null or object); missing is not the same as null.
+      if (!Object.hasOwn(team, "nextGame")) {
+        errors.push(`${id}.nextGame must be present (null or a game object)`);
+      } else if (team.nextGame !== null) {
         validateGame(errors, `${id}.nextGame`, team.nextGame);
       }
-      for (const [index, game] of asArray(team.recent).entries()) {
-        validateGame(errors, `${id}.recent[${index}]`, game);
+      // Generator always sets recent to an array (possibly empty).
+      if (!Object.hasOwn(team, "recent") || !Array.isArray(team.recent)) {
+        errors.push(`${id}.recent must be an array`);
+      } else {
+        for (const [index, game] of team.recent.entries()) {
+          validateGame(errors, `${id}.recent[${index}]`, game);
+        }
       }
     }
   }
