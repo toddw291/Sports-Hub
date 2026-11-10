@@ -81,9 +81,10 @@ test("known statuses match the normalize/README domain set", () => {
 });
 
 test("committed snapshot passes validation", () => {
-  const errors = validateSnapshot(committedSnapshot, {
-    now: new Date("2026-11-07T00:00:00.000Z"),
-  });
+  // Use wall-clock now (same as the CLI / CI validate step). A frozen clock
+  // goes stale as soon as a refresh commits an updatedAt past that freeze,
+  // which blocked the daily refresh workflow before it could fetch.
+  const errors = validateSnapshot(committedSnapshot);
   assert.deepEqual(errors, []);
 });
 
