@@ -73,10 +73,11 @@ export async function buildLiveSnapshot(fetchImpl = globalThis.fetch, now = new 
   for (const team of TEAMS) {
     if (!leagues.some((item) => item.league === team.league)) leagues.push(team);
   }
-  const [schedules, boards, tables, ufcBoard] = await Promise.all([
+  const [schedules, boards, tables, injuryFeeds, ufcBoard] = await Promise.all([
     Promise.all(TEAMS.map((team) => loadSchedule(team, fetchImpl, now))),
     Promise.all(leagues.map((team) => optionalJson(endpointFor("scoreboard", team), fetchImpl))),
     Promise.all(leagues.map((team) => optionalJson(endpointFor("standings", team), fetchImpl))),
+    Promise.all(TEAMS.map((team) => optionalJson(endpointFor("injuries", team), fetchImpl))),
     fetchJson(endpointFor("ufc", null, window), fetchImpl),
   ]);
   const scoreboardByLeague = new Map(leagues.map((team, index) => [team.league, boards[index]]));
@@ -87,6 +88,8 @@ export async function buildLiveSnapshot(fetchImpl = globalThis.fetch, now = new 
     schedule: schedules[index],
     scoreboard: scoreboardByLeague.get(team.league),
     standings: standingsByLeague.get(team.league),
+    injuries: injuryFeeds[index],
+    now,
   }));
   const snapshot = {
     schemaVersion: 1,
@@ -98,7 +101,7 @@ export async function buildLiveSnapshot(fetchImpl = globalThis.fetch, now = new 
       docs: "sports/data/README.md",
     },
     teams,
-    ufc: normalizeUfc(ufcBoard),
+    ufc: normalizeUfc(ufcBoard, now),
   };
   const problems = assertSnapshot(snapshot);
   if (problems.length) {
