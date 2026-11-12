@@ -2,13 +2,16 @@ import test from "node:test";
 import assert from "node:assert/strict";
 import {
   TEAMS,
+  easternDayDiff,
   endpointFor,
   fightMethod,
   findStandingGroup,
   mergeScheduleFeeds,
+  normalizeAvailability,
   normalizeGame,
   normalizeTeam,
   normalizeUfc,
+  pickNext,
   readScore,
   readStatus,
   scheduleHasOpenGame,
@@ -237,6 +240,314 @@ test("hides 0-0 placeholder scores before tipoff", () => {
   assert.equal(game.away.score, null);
 });
 
+test("keeps the Colts in the regular season until their bye week is the scoreboard week", () => {
+  const now = new Date("2026-11-10T17:00:00.000Z");
+  const regular = normalizeTeam({
+    team: colts,
+    now,
+    standings: null,
+    schedule: {
+      byeWeek: 13,
+      team: { abbreviation: "IND", displayName: "Indianapolis Colts" },
+      events: [scheduledClub("11", "2026-11-22T18:00:00.000Z", 11, 2, "Regular Season", 2026)],
+    },
+    scoreboard: { season: { type: 2, year: 2026 }, week: { number: 10 } },
+  });
+  assert.equal(regular.seasonState, "Regular season");
+
+  const bye = normalizeTeam({
+    team: colts,
+    now,
+    standings: null,
+    schedule: {
+      byeWeek: 13,
+      team: { abbreviation: "IND", displayName: "Indianapolis Colts" },
+      events: [scheduledClub("14", "2026-11-29T18:00:00.000Z", 14, 2, "Regular Season", 2026)],
+    },
+    scoreboard: { season: { type: 2, year: 2026 }, week: { number: 13 } },
+  });
+  assert.equal(bye.seasonState, "Bye");
+});
+
+test("labels the next Pacers game, not a later cup date", () => {
+  const pacers = TEAMS[1];
+  const now = new Date("2026-11-12T17:00:00.000Z");
+  const scoreboard = { season: { type: 2, year: 2027 } };
+  const regularThenCup = normalizeTeam({
+    team: pacers,
+    now,
+    scoreboard,
+    standings: null,
+    schedule: {
+      events: [
+        scheduledClub("1", "2026-11-14T00:30:00.000Z", null, 2, "Regular Season", 2027, "IND", "11", []),
+        scheduledClub("2", "2026-11-15T00:30:00.000Z", null, 2, "Regular Season", 2027, "IND", "11", ["NBA Cup - Group Play"]),
+      ],
+    },
+  });
+  assert.equal(regularThenCup.seasonState, "Regular season");
+  assert.equal(regularThenCup.nextGame.id, "1");
+
+  const cupNext = normalizeTeam({
+    team: pacers,
+    now,
+    scoreboard,
+    standings: null,
+    schedule: {
+      events: [
+        scheduledClub("2", "2026-11-14T00:30:00.000Z", null, 2, "Regular Season", 2027, "IND", "11", ["NBA Cup - Group Play"]),
+        scheduledClub("3", "2026-11-21T00:30:00.000Z", null, 2, "Regular Season", 2027, "IND", "11", []),
+      ],
+    },
+  });
+  assert.equal(cupNext.seasonState, "NBA Cup");
+  assert.equal(cupNext.nextGame.id, "2");
+});
+
+test("play-in note wins over the playoffs type", () => {
+  const team = normalizeTeam({
+    team: TEAMS[1],
+    now: new Date("2026-04-10T16:00:00.000Z"),
+    scoreboard: { season: { type: 3, year: 2026 } },
+    standings: null,
+    schedule: {
+      events: [
+        scheduledClub("9", "2026-04-15T23:00:00.000Z", null, 3, "Playoffs", 2026, "IND", "11", ["Play-In Tournament"]),
+      ],
+    },
+  });
+  assert.equal(team.seasonState, "Play-in");
+});
+
+test("a next-year Reds opener stays nextGame and the badge stays Offseason", () => {
+  const reds = TEAMS[2];
+  const now = new Date("2027-02-20T17:00:00.000Z");
+  const finished = {
+    season: { year: 2026, type: 3 },
+    team: { abbreviation: "CIN", displayName: "Cincinnati Reds" },
+    events: [finalEvent("100", "2026-09-27T19:07Z", "CIN", "17", "1", "TOR", "5", "14")],
+  };
+  finished.events[0].season = { year: 2026 };
+  finished.events[0].seasonType = { type: 2, name: "Regular Season" };
+  const opener = {
+    events: [scheduledClub("200", "2027-03-25T04:00:00.000Z", null, 2, "Regular Season", 2027, "CIN", "17")],
+  };
+  opener.events[0].competitions[0].timeValid = false;
+  opener.events[0].competitions[0].status.type.shortDetail = "TBD";
+  const team = normalizeTeam({
+    team: reds,
+    now,
+    standings: null,
+    schedule: mergeScheduleFeeds(finished, opener),
+    scoreboard: { season: { type: 3, year: 2026 } },
+  });
+  assert.equal(team.seasonState, "Offseason");
+  assert.equal(team.nextGame.id, "200");
+  assert.equal(team.nextGame.timeValid, false);
+});
+
+test("spring training follows the event name, not the merged root type", () => {
+  const team = normalizeTeam({
+    team: TEAMS[2],
+    now: new Date("2027-02-20T17:00:00.000Z"),
+    scoreboard: { season: { type: 3, year: 2027 } },
+    standings: null,
+    schedule: {
+      season: { year: 2026, type: 3 },
+      events: [scheduledClub("300", "2027-02-27T18:00:00.000Z", null, 3, "Spring Training", 2027, "CIN", "17")],
+    },
+  });
+  assert.equal(team.seasonState, "Spring training");
+});
+
+test("phase refines today's game and leaves coarse status alone", () => {
+  const thursdayNight = new Date("2026-11-13T03:00:00.000Z");
+  const fridayEarly = "2026-11-13T06:00:00.000Z";
+  assert.equal(easternDayDiff(fridayEarly, thursdayNight), 1);
+
+  const laterToday = new Date("2026-11-12T15:00:00.000Z");
+  const pregame = phaseGame({
+    now: laterToday,
+    start: "2026-11-12T23:00:00.000Z",
+    name: "STATUS_SCHEDULED",
+    state: "pre",
+    detail: "11/12 - 6:00 PM EST",
+  });
+  assert.equal(pregame.status, "scheduled");
+  assert.equal(pregame.phase, "Pregame");
+
+  const otherDay = phaseGame({
+    now: thursdayNight,
+    start: fridayEarly,
+    name: "STATUS_SCHEDULED",
+    state: "pre",
+    detail: "11/13 - 1:00 AM EST",
+  });
+  assert.equal(otherDay.phase, null);
+
+  const halftime = phaseGame({
+    now: laterToday,
+    start: "2026-11-12T18:00:00.000Z",
+    name: "STATUS_HALFTIME",
+    state: "in",
+    detail: "Halftime",
+  });
+  assert.equal(halftime.status, "in");
+  assert.equal(halftime.phase, "Halftime");
+
+  const endPeriod = phaseGame({
+    now: laterToday,
+    start: "2026-11-12T18:00:00.000Z",
+    name: "STATUS_END_PERIOD",
+    state: "in",
+    detail: "End of 1st",
+  });
+  assert.equal(endPeriod.status, "in");
+  assert.equal(endPeriod.phase, "End of period");
+
+  const overtime = phaseGame({
+    now: laterToday,
+    start: "2026-11-12T18:00:00.000Z",
+    name: "STATUS_IN_PROGRESS",
+    state: "in",
+    detail: "2:00 - 5th",
+    period: 5,
+  });
+  assert.equal(overtime.status, "in");
+  assert.equal(overtime.phase, "Overtime");
+
+  const delayed = phaseGame({
+    now: laterToday,
+    start: "2026-11-12T18:00:00.000Z",
+    name: "STATUS_DELAYED",
+    state: "pre",
+    detail: "Delayed",
+  });
+  assert.equal(delayed.status, "scheduled");
+  assert.equal(delayed.phase, "Delayed");
+
+  const finalOt = phaseGame({
+    now: new Date("2026-11-15T18:00:00.000Z"),
+    start: "2026-11-15T18:00:00.000Z",
+    name: "STATUS_FINAL",
+    state: "post",
+    detail: "Final/OT",
+    completed: true,
+  });
+  assert.equal(finalOt.status, "final");
+  assert.equal(finalOt.phase, "Final");
+});
+
+test("pickNext keeps today's final until the Eastern date changes, and prefers a live game", () => {
+  const now = new Date("2026-11-15T20:00:00.000Z");
+  const games = [
+    { id: "final", status: "final", start: "2026-11-15T18:00:00.000Z" },
+    { id: "later", status: "scheduled", start: "2026-11-22T18:00:00.000Z" },
+  ];
+  assert.equal(pickNext(games, now).id, "final");
+  assert.equal(pickNext([
+    { id: "live", status: "in", start: "2026-11-15T18:00:00.000Z" },
+    ...games,
+  ], now).id, "live");
+  assert.equal(pickNext([
+    { id: "done", status: "final", start: "2026-11-15T18:00:00.000Z" },
+    { id: "still", status: "scheduled", start: "2026-11-15T21:00:00.000Z" },
+  ], now).id, "still");
+});
+
+test("availability keeps pins, drops other Active rows, and sorts outs first", () => {
+  assert.deepEqual(normalizeAvailability("colts", null, "11"), []);
+  const rows = normalizeAvailability("colts", {
+    injuries: [{
+      id: "11",
+      injuries: [
+        { athlete: { displayName: "Ashton Dulin", position: { abbreviation: "WR" } }, status: "Active" },
+        {
+          athlete: { displayName: "Daniel Jones", position: { abbreviation: "QB" } },
+          status: "Active",
+          details: { type: "Not Specified" },
+        },
+        {
+          athlete: { displayName: "Alec Pierce", position: { abbreviation: "WR" } },
+          status: "Injured Reserve",
+          details: { type: "Heel" },
+        },
+        {
+          athlete: { displayName: "Zaire Franklin", position: { abbreviation: "LB" } },
+          status: "suspension",
+          details: { type: "Conduct" },
+        },
+        {
+          athlete: { displayName: "Tyler Warren", position: { abbreviation: "TE" } },
+          status: "Day-To-Day",
+          details: { type: "Ankle" },
+        },
+      ],
+    }],
+  }, "11");
+  assert.deepEqual(rows, [
+    { name: "Alec Pierce", position: "WR", status: "IR", reason: "Heel" },
+    { name: "Zaire Franklin", position: "LB", status: "Suspended", reason: "Conduct" },
+    { name: "Tyler Warren", position: "TE", status: "Day-to-day", reason: "Ankle" },
+    { name: "Daniel Jones", position: "QB", status: "Active", reason: null },
+    { name: "Jonathan Taylor", position: "RB", status: "Active", reason: null },
+  ]);
+});
+
+test("injury urls are the public league feeds", () => {
+  assert.equal(endpointFor("injuries", TEAMS[0]), "https://site.api.espn.com/apis/site/v2/sports/football/nfl/injuries");
+  assert.equal(endpointFor("injuries", TEAMS[1]), "https://site.api.espn.com/apis/site/v2/sports/basketball/nba/injuries");
+  assert.equal(endpointFor("injuries", TEAMS[2]), "https://site.api.espn.com/apis/site/v2/sports/baseball/mlb/injuries");
+});
+
+test("fight week covers seven Eastern days and the day of a finished card", () => {
+  const now = new Date("2026-11-12T16:00:00.000Z");
+  const inSeven = normalizeUfc({
+    events: [ufcCard("1", "2026-11-19T16:00:00.000Z", "STATUS_SCHEDULED")],
+  }, now);
+  assert.equal(inSeven.seasonState, "Fight week");
+
+  const inEight = normalizeUfc({
+    events: [ufcCard("2", "2026-11-20T16:00:00.000Z", "STATUS_SCHEDULED")],
+  }, now);
+  assert.equal(inEight.seasonState, null);
+
+  const finalToday = normalizeUfc({
+    events: [
+      ufcCard("3", "2026-11-13T02:00:00.000Z", "STATUS_FINAL"),
+      ufcCard("4", "2026-12-19T16:00:00.000Z", "STATUS_SCHEDULED"),
+    ],
+  }, now);
+  assert.equal(finalToday.seasonState, "Fight week");
+  assert.equal(finalToday.nextEvent.id, "4");
+});
+
+test("a canceled fight notes the cancellation and a scheduled fight does not", () => {
+  const ufc = normalizeUfc({
+    events: [{
+      id: "5",
+      name: "UFC Fight Night: Alpha vs. Beta",
+      date: "2026-11-19T16:00:00.000Z",
+      status: { type: { name: "STATUS_SCHEDULED", state: "pre", shortDetail: "Scheduled" } },
+      competitions: [
+        fight("Alpha", "Beta", false),
+        {
+          id: "canceled-bout",
+          type: { abbreviation: "Welterweight" },
+          status: { type: { name: "STATUS_CANCELED", state: "pre", shortDetail: "Canceled" } },
+          competitors: [
+            { athlete: { displayName: "Gamma" } },
+            { athlete: { displayName: "Delta" } },
+          ],
+        },
+      ],
+    }],
+  }, new Date("2026-11-12T16:00:00.000Z"));
+  const fights = ufc.nextEvent.fights;
+  assert.equal(fights.find((bout) => bout.fighters[0].name === "Alpha").note, null);
+  assert.equal(fights.find((bout) => bout.status === "canceled").note, "Canceled");
+});
+
 function finalEvent(id, date, awayAbbr, awayId, awayScore, homeAbbr, homeScore, homeId) {
   return {
     id,
@@ -274,6 +585,59 @@ function row(abbr, name, wins, losses, seed) {
       { name: "pointDifferential", displayValue: "-3" },
       { name: "playoffSeed", displayValue: seed },
     ],
+  };
+}
+
+function scheduledClub(id, date, week, type, seasonName, year, abbr = "IND", teamId = "11", headlines = []) {
+  const event = {
+    id,
+    date,
+    season: { year },
+    seasonType: { type, name: seasonName },
+    competitions: [{
+      timeValid: true,
+      notes: headlines.map((headline) => ({ headline })),
+      status: { type: { name: "STATUS_SCHEDULED", state: "pre", shortDetail: "Scheduled" } },
+      competitors: [
+        { homeAway: "home", team: { id: teamId, abbreviation: abbr, displayName: abbr } },
+        { homeAway: "away", team: { id: "99", abbreviation: "OPP", displayName: "Opponent" } },
+      ],
+    }],
+  };
+  if (week != null) event.week = { number: week };
+  return event;
+}
+
+function phaseGame({ now, start, name, state, detail, period, completed }) {
+  return normalizeGame({
+    id: "g",
+    date: start,
+    competitions: [{
+      timeValid: true,
+      status: {
+        period,
+        type: { name, state, shortDetail: detail, completed: Boolean(completed) },
+      },
+      competitors: [
+        { homeAway: "home", team: { id: "11", abbreviation: "IND", displayName: "Indianapolis Colts" } },
+        { homeAway: "away", team: { id: "6", abbreviation: "DAL", displayName: "Dallas Cowboys" } },
+      ],
+    }],
+  }, "NFL", "11", null, now);
+}
+
+function ufcCard(id, date, name) {
+  const finished = name === "STATUS_FINAL";
+  return {
+    id,
+    name: `UFC Fight Night: Card ${id}`,
+    date,
+    status: {
+      type: finished
+        ? { name, state: "post", completed: true, shortDetail: "Final" }
+        : { name, state: "pre", shortDetail: "Scheduled" },
+    },
+    competitions: [fight("Alpha", "Beta", finished)],
   };
 }
 

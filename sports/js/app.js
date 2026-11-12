@@ -1,4 +1,5 @@
 import { buildLiveSnapshot, snapshotProblems } from "./api.js";
+import { STATUS_RANK, easternYmd } from "./normalize.js";
 
 const TEAM_ORDER = ["colts", "pacers", "reds", "ufc"];
 const STORAGE_KEY = "ward-sports-snapshot-v1";
@@ -263,7 +264,7 @@ function renderUfc(ufc) {
     return;
   }
   mainEl.replaceChildren(
-    section("next", "Arena of Champions", "The next card.", ufc.nextEvent ? eventCard(ufc.nextEvent, { featured: true }) : empty("No upcoming UFC card in this window.")),
+    section("next", "Arena of Champions", "The next card.", ufc.nextEvent ? eventCard(ufc.nextEvent, { featured: true, seasonState: ufc.seasonState }) : empty("No upcoming UFC card in this window.")),
     section("recent", "After-Action Reports", "Finished cards.", ufc.recent.length
       ? el("div", { class: "stack" }, ufc.recent.map((event) => eventCard(event, { featured: false })))
       : empty("No recent UFC cards in this window.")),
@@ -286,11 +287,16 @@ function nextCard(team) {
   if (!game) return empty("No upcoming game on the schedule.");
   const when = formatKickoff(game.start, game.timeValid);
   const place = game.ours === "home" ? "Home" : game.ours === "away" ? "Away" : game.neutralSite ? "Neutral" : "";
-  return el("article", { class: `battle-card is-${game.status}` }, [
+  const card = el("article", {
+    class: `battle-card is-${game.status}${typeof game.phase === "string" ? " is-gameday" : ""}`,
+  }, [
     el("p", { class: "identity" }, [
       logo(team.logo, team.name, 36, team.abbr),
       el("span", {}, [
         el("span", { class: "identity-name", text: team.name }),
+        typeof team.seasonState === "string" && team.seasonState
+          ? el("span", { class: "season-badge", text: team.seasonState })
+          : null,
         el("span", { class: "identity-meta", text: [team.record, team.standingName, team.seed ? `Seed ${team.seed}` : "", team.streak].filter(Boolean).join(" · ") }),
       ]),
     ]),
@@ -304,6 +310,27 @@ function nextCard(team) {
       el("span", { text: statusLine(game) }),
     ]),
     el("p", { class: "meta dim", text: [place, game.venue, game.broadcast].filter(Boolean).join(" · ") }),
+  ]);
+  const rows = Array.isArray(team.availability) ? team.availability : [];
+  if (!rows.length) return card;
+  return [card, availabilityList(game, rows)];
+}
+
+function availabilityList(game, rows) {
+  const gameDay = easternYmd(game.start) != null && easternYmd(game.start) === easternYmd(new Date());
+  const outs = gameDay && rows.some((row) => STATUS_RANK[row.status] <= STATUS_RANK.Suspended);
+  return el("div", { class: "availability" }, [
+    outs ? el("p", { class: "note", text: "Out today" }) : null,
+    ...rows.map(availabilityRow),
+  ]);
+}
+
+function availabilityRow(row) {
+  const who = [row.name, row.position].filter((part) => part);
+  const state = [row.status, row.reason].filter((part) => part);
+  return el("div", { class: "availability-row", "data-status": row.status }, [
+    el("span", { text: who.join(" ") }),
+    el("span", { class: "avail-status", text: state.join(" · ") }),
   ]);
 }
 
@@ -374,7 +401,7 @@ function standingsTable(team) {
   ]);
 }
 
-function eventCard(event, { featured }) {
+function eventCard(event, { featured, seasonState }) {
   const when = formatKickoff(event.start, event.timeValid);
   const fights = event.fights || [];
   const main = fights.filter((fight) => fight.card === "main" && !fight.mainEvent);
@@ -382,7 +409,10 @@ function eventCard(event, { featured }) {
   const mainEvent = fights.find((fight) => fight.mainEvent);
   const lead = [mainEvent, ...(featured ? main : [])].filter(Boolean);
   return el("article", { class: `battle-card is-${event.status}` }, [
-    featured ? el("p", { class: "kicker", text: event.shortName || "UFC" }) : null,
+    featured ? el("p", { class: "kicker" }, [
+      event.shortName || "UFC",
+      seasonState === "Fight week" ? el("span", { class: "season-badge", text: "Fight week" }) : null,
+    ]) : null,
     el("h3", { class: "event-name", text: event.name }),
     featured
       ? el("p", { class: "when" }, [
@@ -420,7 +450,11 @@ function eventLine(event) {
 }
 
 function fightRow(fight) {
-  return el("div", { class: `fight is-${fight.status}${fight.mainEvent ? " is-main" : ""}` }, [
+  const classes = [`fight is-${fight.status}`];
+  if (fight.mainEvent) classes.push("is-main");
+  if (fight.status === "canceled") classes.push("is-canceled");
+  if (typeof fight.note === "string") classes.push("is-pulled");
+  return el("div", { class: classes.join(" ") }, [
     el("div", { class: "fight-head" }, [
       el("span", { class: "weight", text: fight.weightClass || "Bout" }),
       el("span", { class: "method", text: methodLine(fight) }),
@@ -435,10 +469,15 @@ function fightRow(fight) {
 }
 
 function methodLine(fight) {
+  if (typeof fight.note === "string") return fight.note;
+  if (fight.status === "canceled") return "Canceled";
+  if (fight.status === "postponed") return "Postponed";
   if (fight.status === "in") return fight.detail || "Live";
-  if (fight.status !== "final") return "Scheduled";
-  if (fight.method && fight.finish) return `${fight.method} · ${fight.finish}`;
-  return fight.method || "Final";
+  if (fight.status === "final") {
+    if (fight.method && fight.finish) return `${fight.method} · ${fight.finish}`;
+    return fight.method || "Final";
+  }
+  return "Scheduled";
 }
 
 function section(id, title, subtitle, content) {
@@ -528,11 +567,22 @@ function scoreLabel(game) {
 }
 
 function statusLine(game) {
+  if (typeof game.phase === "string") return phaseLine(game);
   if (game.status === "in") return game.detail || "In progress";
   if (game.status === "final") return "Final";
   if (game.status === "postponed") return "Postponed";
   if (game.status === "canceled") return "Canceled";
   return "Upcoming";
+}
+
+function phaseLine(game) {
+  if (game.phase === "In progress") return game.detail || "In progress";
+  if (game.phase === "Overtime" || game.phase === "End of period" || game.phase === "Halftime") {
+    const detail = game.detail || "";
+    if (detail && !detail.toLowerCase().includes(game.phase.toLowerCase())) return `${game.phase} · ${detail}`;
+    return game.phase;
+  }
+  return game.phase;
 }
 
 function statusLabel(status) {

@@ -267,6 +267,108 @@ test("workflow guard: failed validation exits before a commit can publish", () =
   assert.equal(committed, false, "failed validation must prevent commit/publication");
 });
 
+test("new keys stay optional, and present values have to match the closed lists", () => {
+  const now = new Date("2026-11-07T00:00:00.000Z");
+  assert.deepEqual(validateSnapshot(baseSnapshot(), { now }), []);
+  assert.match(
+    validateSnapshot(baseSnapshot({ schemaVersion: 2 }), { now }).join("\n"),
+    /schemaVersion must be 1/,
+  );
+
+  const season = (id, value) => {
+    const snap = baseSnapshot();
+    snap.teams.find((team) => team.id === id).seasonState = value;
+    return validateSnapshot(snap, { now }).join("\n");
+  };
+  assert.match(season("colts", "NBA Cup"), /colts\.seasonState/);
+  assert.match(season("reds", "Bye"), /reds\.seasonState/);
+  assert.match(season("pacers", null), /pacers\.seasonState/);
+
+  const availability = (row) => {
+    const snap = baseSnapshot();
+    snap.teams[0].availability = row;
+    return validateSnapshot(snap, { now });
+  };
+  assert.match(availability({ name: "Daniel Jones" }).join("\n"), /availability must be an array/);
+  assert.match(
+    availability([{ name: "Alec Pierce", position: "WR", status: "PUP", reason: null }]).join("\n"),
+    /PUP/,
+  );
+  assert.match(
+    availability([{ name: "Ashton Dulin", position: "WR", status: "Active", reason: null }]).join("\n"),
+    /Ashton Dulin/,
+  );
+  assert.deepEqual(
+    availability([{ name: "Alec Pierce", position: "WR", status: "Active", reason: null }]),
+    [],
+  );
+  assert.match(availability([
+    { name: "Alec Pierce", position: "WR", status: "IR", reason: "Heel" },
+    { name: "Alec  Pierce", position: "WR", status: "Out", reason: "Heel" },
+  ]).join("\n"), /pinKey/);
+  assert.match(
+    availability([{ name: "Alec Pierce", position: "WR", status: "IR", reason: "" }]).join("\n"),
+    /reason/,
+  );
+
+  const phase = (status, value) => {
+    const snap = baseSnapshot();
+    snap.teams[0].nextGame.status = status;
+    snap.teams[0].nextGame.phase = value;
+    return validateSnapshot(snap, { now });
+  };
+  assert.match(phase("final", "Halftime").join("\n"), /phase/);
+  assert.match(phase("postponed", "Pregame").join("\n"), /phase/);
+  assert.deepEqual(phase("scheduled", "Pregame"), []);
+  assert.deepEqual(phase("scheduled", null), []);
+
+  const ufcSeason = (value) => {
+    const snap = baseSnapshot();
+    snap.ufc.seasonState = value;
+    return validateSnapshot(snap, { now });
+  };
+  assert.match(ufcSeason("Off week").join("\n"), /Off week/);
+  assert.deepEqual(ufcSeason(null), []);
+
+  const noted = (note, where) => {
+    const snap = baseSnapshot();
+    const event = { fights: [{ note }] };
+    if (where === "schedule") snap.ufc.schedule = [event];
+    if (where === "nextEvent") snap.ufc.nextEvent = event;
+    if (where === "recent") snap.ufc.recent = [event];
+    return validateSnapshot(snap, { now });
+  };
+  assert.match(noted("", "schedule").join("\n"), /note/);
+  assert.match(noted("x".repeat(81), "nextEvent").join("\n"), /note/);
+  assert.deepEqual(noted(null, "recent"), []);
+});
+
+test("outage guard still fires when season and availability are filled in", () => {
+  const now = new Date("2026-11-07T00:00:00.000Z");
+  const previous = baseSnapshot();
+  const wiped = baseSnapshot();
+  const rows = {
+    colts: { name: "Daniel Jones", position: "QB", status: "Active", reason: null },
+    pacers: { name: "Pascal Siakam", position: "F", status: "Out", reason: "Knee" },
+    reds: { name: "Elly De La Cruz", position: "SS", status: "Active", reason: null },
+  };
+  for (const team of wiped.teams) {
+    team.nextGame = null;
+    team.recent = [];
+    team.seasonState = "Offseason";
+    team.availability = [rows[team.id]];
+  }
+  assert.match(
+    validateSnapshot(wiped, { previous, now }).join("\n"),
+    /outage guard/,
+  );
+
+  const kept = baseSnapshot();
+  kept.teams[0].seasonState = "Regular season";
+  kept.teams[0].availability = [rows.colts];
+  assert.deepEqual(validateSnapshot(kept, { previous, now }), []);
+});
+
 test("refresh workflow runs post-fetch validation before commit", () => {
   const yaml = readFileSync(join(root, ".github/workflows/refresh-sports-data.yml"), "utf8");
   const downloadAt = yaml.indexOf("Download the latest scores");
