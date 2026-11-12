@@ -9,6 +9,15 @@
 import { readFile } from "node:fs/promises";
 import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
+import {
+  AVAILABILITY_STATUSES,
+  PHASE_STATUS,
+  PHASES,
+  PINS,
+  SEASON_LABELS,
+  UFC_SEASON_LABEL,
+  pinKey,
+} from "../sports/js/normalize.js";
 
 export const REQUIRED_TEAM_IDS = ["colts", "pacers", "reds"];
 export const KNOWN_GAME_STATUSES = Object.freeze([
@@ -103,6 +112,78 @@ function validateGame(errors, label, game) {
   }
   validateSide(errors, `${label}.home`, game.home);
   validateSide(errors, `${label}.away`, game.away);
+  validatePhase(errors, label, game);
+}
+
+function validatePhase(errors, label, game) {
+  if (!Object.hasOwn(game, "phase")) return;
+  if (game.phase === null) return;
+  if (!PHASES.includes(game.phase)) {
+    errors.push(`${label}.phase must be null or one of ${PHASES.join(", ")} (got ${JSON.stringify(game.phase)})`);
+    return;
+  }
+  const allowed = PHASE_STATUS[game.phase] || [];
+  if (!allowed.includes(game.status)) {
+    errors.push(`${label}.phase ${JSON.stringify(game.phase)} is not legal with status ${JSON.stringify(game.status)}`);
+  }
+}
+
+function validateSeasonState(errors, id, team) {
+  if (!Object.hasOwn(team, "seasonState")) return;
+  const labels = SEASON_LABELS[id] || [];
+  if (typeof team.seasonState !== "string" || !labels.includes(team.seasonState)) {
+    errors.push(`${id}.seasonState must be one of ${labels.join(", ")} (got ${JSON.stringify(team.seasonState)})`);
+  }
+}
+
+function validateAvailability(errors, id, team) {
+  if (!Object.hasOwn(team, "availability")) return;
+  if (!Array.isArray(team.availability)) {
+    errors.push(`${id}.availability must be an array`);
+    return;
+  }
+  const seen = new Set();
+  const pins = PINS[id] || [];
+  team.availability.forEach((row, index) => {
+    const label = `${id}.availability[${index}]`;
+    if (!row || typeof row !== "object" || Array.isArray(row)) {
+      errors.push(`${label} must be an object`);
+      return;
+    }
+    if (typeof row.name !== "string" || row.name.length < 1 || row.name.length > 80) {
+      errors.push(`${label}.name must be a string of length 1 to 80`);
+    }
+    if (typeof row.position !== "string" || row.position.length > 8) {
+      errors.push(`${label}.position must be a string of length 0 to 8`);
+    }
+    if (!AVAILABILITY_STATUSES.includes(row.status)) {
+      errors.push(`${label}.status must be one of ${AVAILABILITY_STATUSES.join(", ")} (got ${JSON.stringify(row.status)})`);
+    } else if (row.status === "Active" && !pins.some((pin) => pinKey(pin.name) === pinKey(row.name))) {
+      errors.push(`${label}.status Active is only legal for a pinned player (got ${JSON.stringify(row.name)})`);
+    }
+    if (!(row.reason === null || (typeof row.reason === "string" && row.reason.length >= 1 && row.reason.length <= 40))) {
+      errors.push(`${label}.reason must be null or a string of length 1 to 40`);
+    }
+    if (typeof row.name === "string") {
+      const key = pinKey(row.name);
+      if (seen.has(key)) errors.push(`${label} duplicates pinKey ${key}`);
+      seen.add(key);
+    }
+  });
+}
+
+function validateFightNote(errors, label, fight) {
+  if (!fight || typeof fight !== "object" || !Object.hasOwn(fight, "note")) return;
+  const note = fight.note;
+  if (note === null) return;
+  if (typeof note !== "string" || note.length < 1 || note.length > 80) {
+    errors.push(`${label}.note must be null or a string of length 1 to 80`);
+  }
+}
+
+function validateFightList(errors, label, event) {
+  if (!event || typeof event !== "object" || !Array.isArray(event.fights)) return;
+  event.fights.forEach((fight, index) => validateFightNote(errors, `${label}.fights[${index}]`, fight));
 }
 
 /**
@@ -118,6 +199,8 @@ export function validateSnapshot(snapshot, options = {}) {
     errors.push("snapshot must be a JSON object");
     return errors;
   }
+
+  if (snapshot.schemaVersion !== 1) errors.push("schemaVersion must be 1");
 
   if (typeof snapshot.updatedAt !== "string" || snapshot.updatedAt.trim() === "") {
     errors.push("updatedAt must be a non-empty ISO date string");
@@ -163,11 +246,20 @@ export function validateSnapshot(snapshot, options = {}) {
           validateGame(errors, `${id}.recent[${index}]`, game);
         }
       }
+      validateSeasonState(errors, id, team);
+      validateAvailability(errors, id, team);
     }
   }
 
   if (snapshot.ufc == null || typeof snapshot.ufc !== "object" || Array.isArray(snapshot.ufc)) {
     errors.push("ufc block is required");
+  } else {
+    if (Object.hasOwn(snapshot.ufc, "seasonState") && snapshot.ufc.seasonState !== null && snapshot.ufc.seasonState !== UFC_SEASON_LABEL) {
+      errors.push(`ufc.seasonState must be null or ${JSON.stringify(UFC_SEASON_LABEL)} (got ${JSON.stringify(snapshot.ufc.seasonState)})`);
+    }
+    asArray(snapshot.ufc.schedule).forEach((event, index) => validateFightList(errors, `ufc.schedule[${index}]`, event));
+    validateFightList(errors, "ufc.nextEvent", snapshot.ufc.nextEvent);
+    asArray(snapshot.ufc.recent).forEach((event, index) => validateFightList(errors, `ufc.recent[${index}]`, event));
   }
 
   const previous = options.previous;
