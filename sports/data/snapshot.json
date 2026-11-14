@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-13T11:59:39.343Z",
+  "updatedAt": "2026-11-14T11:45:29.835Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -86,6 +86,42 @@
       "seasonState": "Regular season",
       "availability": [
         {
+          "name": "Akeem Davis-Gaither",
+          "position": "LB",
+          "status": "Out",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jalen Travis",
+          "position": "OT",
+          "status": "Out",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jaylon Carlies",
+          "position": "LB",
+          "status": "Out",
+          "reason": "Neck"
+        },
+        {
+          "name": "Jerry Tillery",
+          "position": "DT",
+          "status": "Out",
+          "reason": "Calf"
+        },
+        {
+          "name": "Luke Rhodes",
+          "position": "LS",
+          "status": "Out",
+          "reason": "Hamstring"
+        },
+        {
+          "name": "Mo Alie-Cox",
+          "position": "TE",
+          "status": "Out",
+          "reason": "Groin"
+        },
+        {
           "name": "Alec Pierce",
           "position": "WR",
           "status": "IR",
@@ -98,34 +134,10 @@
           "reason": "Hamstring"
         },
         {
-          "name": "Jalen Travis",
-          "position": "OT",
-          "status": "Doubtful",
-          "reason": "Knee"
-        },
-        {
-          "name": "Akeem Davis-Gaither",
-          "position": "LB",
-          "status": "Questionable",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jerry Tillery",
-          "position": "DT",
-          "status": "Questionable",
-          "reason": "Calf"
-        },
-        {
-          "name": "Luke Rhodes",
-          "position": "LS",
-          "status": "Questionable",
-          "reason": "Hamstring"
-        },
-        {
-          "name": "Mo Alie-Cox",
+          "name": "Will Mallory",
           "position": "TE",
           "status": "Questionable",
-          "reason": "Groin"
+          "reason": "Hamstring"
         },
         {
           "name": "Daniel Jones",
@@ -849,12 +861,12 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "4-8",
-      "wins": 4,
+      "record": "5-8",
+      "wins": 5,
       "losses": 8,
       "ties": 0,
-      "streak": "W1",
-      "seed": "11",
+      "streak": "W2",
+      "seed": "10",
       "standingName": "Central",
       "conference": "Eastern Conference",
       "standings": [
@@ -863,11 +875,11 @@
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
           "wins": 1,
-          "losses": 11,
+          "losses": 12,
           "ties": null,
-          "pct": ".083",
-          "streak": "L8",
-          "diff": "-175",
+          "pct": ".077",
+          "streak": "L9",
+          "diff": "-183",
           "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
@@ -876,12 +888,12 @@
           "abbr": "CHI",
           "name": "Bulls",
           "fullName": "Chicago Bulls",
-          "wins": 1,
+          "wins": 2,
           "losses": 9,
           "ties": null,
-          "pct": ".100",
-          "streak": "L8",
-          "diff": "-155",
+          "pct": ".182",
+          "streak": "W1",
+          "diff": "-147",
           "seed": "14",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
@@ -890,13 +902,13 @@
           "abbr": "IND",
           "name": "Pacers",
           "fullName": "Indiana Pacers",
-          "wins": 4,
+          "wins": 5,
           "losses": 8,
           "ties": null,
-          "pct": ".333",
-          "streak": "W1",
-          "diff": "-29",
-          "seed": "11",
+          "pct": ".385",
+          "streak": "W2",
+          "diff": "-27",
+          "seed": "10",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
         },
@@ -905,12 +917,12 @@
           "name": "Cavaliers",
           "fullName": "Cleveland Cavaliers",
           "wins": 6,
-          "losses": 6,
+          "losses": 7,
           "ties": null,
-          "pct": ".500",
-          "streak": "W1",
-          "diff": "+25",
-          "seed": "6",
+          "pct": ".462",
+          "streak": "L1",
+          "diff": "+13",
+          "seed": "7",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
         },
@@ -930,7 +942,7 @@
         }
       ],
       "byeWeek": null,
-      "seasonState": "NBA Cup",
+      "seasonState": "Regular season",
       "availability": [
         {
           "name": "Ben Sheppard",
@@ -954,13 +966,7 @@
           "name": "Aaron Nesmith",
           "position": "G",
           "status": "Day-to-day",
-          "reason": "Knee"
-        },
-        {
-          "name": "T.J. McConnell",
-          "position": "G",
-          "status": "Day-to-day",
-          "reason": "Hamstring"
+          "reason": "Hand"
         },
         {
           "name": "Andrew Nembhard",
@@ -979,19 +985,34 @@
           "position": "F",
           "status": "Active",
           "reason": null
+        },
+        {
+          "name": "T.J. McConnell",
+          "position": "G",
+          "status": "Active",
+          "reason": null
         }
       ],
       "nextGame": {
-        "id": "401909296",
-        "start": "2026-11-14T00:00Z",
+        "id": "401909985",
+        "start": "2026-11-15T18:00Z",
         "status": "scheduled",
-        "detail": "11/13 - 7:00 PM EST",
+        "detail": "11/15 - 1:00 PM EST",
         "timeValid": true,
-        "phase": "Pregame",
-        "venue": "Gainbridge Fieldhouse",
-        "broadcast": "Prime Video",
+        "phase": null,
+        "venue": "Xfinity Mobile Arena",
+        "broadcast": "DAZN IND",
         "neutralSite": false,
         "home": {
+          "id": "20",
+          "abbr": "PHI",
+          "name": "Philadelphia 76ers",
+          "shortName": "76ers",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
+        },
+        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indiana Pacers",
@@ -1000,18 +1021,39 @@
           "winner": false,
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
-        "away": {
-          "id": "18",
-          "abbr": "NY",
-          "name": "New York Knicks",
-          "shortName": "Knicks",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png"
-        },
-        "ours": "home"
+        "ours": "away"
       },
       "recent": [
+        {
+          "id": "401909296",
+          "start": "2026-11-14T00:00Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Gainbridge Fieldhouse",
+          "broadcast": "Prime Video",
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "106",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          },
+          "away": {
+            "id": "18",
+            "abbr": "NY",
+            "name": "New York Knicks",
+            "shortName": "Knicks",
+            "score": "104",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png"
+          },
+          "ours": "home"
+        },
         {
           "id": "401909966",
           "start": "2026-11-12T00:00Z",
@@ -1131,36 +1173,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
-        },
-        {
-          "id": "401909909",
-          "start": "2026-11-03T00:30Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "Gainbridge Fieldhouse",
-          "broadcast": "NBA League Pass",
-          "neutralSite": false,
-          "home": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "104",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "away": {
-            "id": "1",
-            "abbr": "ATL",
-            "name": "Atlanta Hawks",
-            "shortName": "Hawks",
-            "score": "108",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
-          },
-          "ours": "home"
         }
       ],
       "schedule": [
@@ -1527,10 +1539,10 @@
         {
           "id": "401909296",
           "start": "2026-11-14T00:00Z",
-          "status": "scheduled",
-          "detail": "11/13 - 7:00 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Gainbridge Fieldhouse",
           "broadcast": "Prime Video",
           "neutralSite": false,
@@ -1539,18 +1551,18 @@
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+            "score": "106",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "away": {
             "id": "18",
             "abbr": "NY",
             "name": "New York Knicks",
             "shortName": "Knicks",
-            "score": null,
+            "score": "104",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ny.png"
           },
           "ours": "home"
         },
@@ -8830,7 +8842,7 @@
         },
         {
           "id": "401931773",
-          "weightClass": "Middleweight",
+          "weightClass": "Catch Weight",
           "status": "scheduled",
           "detail": "11/14 - 7:00 PM EST",
           "method": null,
@@ -13565,7 +13577,7 @@
           },
           {
             "id": "401931773",
-            "weightClass": "Middleweight",
+            "weightClass": "Catch Weight",
             "status": "scheduled",
             "detail": "11/14 - 7:00 PM EST",
             "method": null,
@@ -13951,6 +13963,60 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
                 "country": "Azerbaijan"
+              }
+            ]
+          },
+          {
+            "id": "401934355",
+            "weightClass": "Lightweight",
+            "status": "scheduled",
+            "detail": "11/21 - 10:00 AM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Nikolas Motta",
+                "record": "15-6-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              },
+              {
+                "name": "Dom Mar Fan",
+                "record": "9-3-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                "country": "Australia"
+              }
+            ]
+          },
+          {
+            "id": "401934356",
+            "weightClass": "Light Heavyweight",
+            "status": "scheduled",
+            "detail": "11/21 - 10:00 AM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Diyar Nurgozhay",
+                "record": "12-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
+                "country": "Kazakhstan"
+              },
+              {
+                "name": "Alik Lorenz",
+                "record": "8-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
               }
             ]
           }
