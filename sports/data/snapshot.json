@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-15T11:46:19.274Z",
+  "updatedAt": "2026-11-16T12:17:17.053Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -16,12 +16,12 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
-      "record": "2-7",
-      "wins": 2,
+      "record": "3-7",
+      "wins": 3,
       "losses": 7,
       "ties": 0,
-      "streak": "L5",
-      "seed": "13",
+      "streak": "W1",
+      "seed": "12",
       "standingName": "AFC South",
       "conference": "American Football Conference",
       "standings": [
@@ -29,12 +29,12 @@
           "abbr": "JAX",
           "name": "Jaguars",
           "fullName": "Jacksonville Jaguars",
-          "wins": 6,
+          "wins": 7,
           "losses": 2,
           "ties": 0,
-          "pct": ".750",
-          "streak": "W2",
-          "diff": "+108",
+          "pct": ".778",
+          "streak": "W3",
+          "diff": "+125",
           "seed": "3",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
           "ours": false
@@ -44,11 +44,11 @@
           "name": "Texans",
           "fullName": "Houston Texans",
           "wins": 3,
-          "losses": 5,
+          "losses": 6,
           "ties": 0,
-          "pct": ".375",
-          "streak": "W1",
-          "diff": "+17",
+          "pct": ".333",
+          "streak": "L1",
+          "diff": "+14",
           "seed": "11",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png",
           "ours": false
@@ -57,13 +57,13 @@
           "abbr": "IND",
           "name": "Colts",
           "fullName": "Indianapolis Colts",
-          "wins": 2,
+          "wins": 3,
           "losses": 7,
           "ties": 0,
-          "pct": ".222",
-          "streak": "L5",
-          "diff": "-65",
-          "seed": "13",
+          "pct": ".300",
+          "streak": "W1",
+          "diff": "-63",
+          "seed": "12",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png",
           "ours": true
         },
@@ -72,11 +72,11 @@
           "name": "Titans",
           "fullName": "Tennessee Titans",
           "wins": 1,
-          "losses": 7,
+          "losses": 8,
           "ties": 0,
-          "pct": ".125",
-          "streak": "L2",
-          "diff": "-55",
+          "pct": ".111",
+          "streak": "L3",
+          "diff": "-72",
           "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png",
           "ours": false
@@ -110,6 +110,12 @@
           "reason": "Hamstring"
         },
         {
+          "name": "Riley Leonard",
+          "position": "QB",
+          "status": "Out",
+          "reason": "Coach's Decision"
+        },
+        {
           "name": "Will Mallory",
           "position": "TE",
           "status": "Out",
@@ -134,6 +140,24 @@
           "reason": "Groin"
         },
         {
+          "name": "Bernhard Raimann",
+          "position": "OT",
+          "status": "Questionable",
+          "reason": "Concussion"
+        },
+        {
+          "name": "Charvarius Ward",
+          "position": "CB",
+          "status": "Questionable",
+          "reason": "Shin"
+        },
+        {
+          "name": "Sauce Gardner",
+          "position": "CB",
+          "status": "Questionable",
+          "reason": "Calf"
+        },
+        {
           "name": "Daniel Jones",
           "position": "QB",
           "status": "Active",
@@ -153,36 +177,66 @@
         }
       ],
       "nextGame": {
-        "id": "401873059",
-        "start": "2026-11-15T18:00Z",
+        "id": "401873066",
+        "start": "2026-11-20T01:15Z",
         "status": "scheduled",
-        "detail": "11/15 - 1:00 PM EST",
+        "detail": "11/19 - 8:15 PM EST",
         "timeValid": true,
-        "phase": "Pregame",
-        "venue": "Lucas Oil Stadium",
-        "broadcast": "CBS",
+        "phase": null,
+        "venue": "Reliant Stadium",
+        "broadcast": "Prime Video",
         "neutralSite": false,
         "home": {
+          "id": "34",
+          "abbr": "HOU",
+          "name": "Houston Texans",
+          "shortName": "Texans",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png"
+        },
+        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indianapolis Colts",
           "shortName": "Colts",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
         },
-        "away": {
-          "id": "15",
-          "abbr": "MIA",
-          "name": "Miami Dolphins",
-          "shortName": "Dolphins",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png"
-        },
-        "ours": "home"
+        "ours": "away"
       },
       "recent": [
+        {
+          "id": "401873059",
+          "start": "2026-11-15T18:00Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Lucas Oil Stadium",
+          "broadcast": "CBS",
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indianapolis Colts",
+            "shortName": "Colts",
+            "score": "24",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+          },
+          "away": {
+            "id": "15",
+            "abbr": "MIA",
+            "name": "Miami Dolphins",
+            "shortName": "Dolphins",
+            "score": "22",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png"
+          },
+          "ours": "home"
+        },
         {
           "id": "401873040",
           "start": "2026-11-08T18:00Z",
@@ -302,36 +356,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ten.png"
           },
           "ours": "home"
-        },
-        {
-          "id": "401872985",
-          "start": "2026-10-11T17:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "Acrisure Stadium",
-          "broadcast": "CBS",
-          "neutralSite": false,
-          "home": {
-            "id": "23",
-            "abbr": "PIT",
-            "name": "Pittsburgh Steelers",
-            "shortName": "Steelers",
-            "score": "34",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/pit.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indianapolis Colts",
-            "shortName": "Colts",
-            "score": "22",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
-          },
-          "ours": "away"
         }
       ],
       "schedule": [
@@ -608,10 +632,10 @@
         {
           "id": "401873059",
           "start": "2026-11-15T18:00Z",
-          "status": "scheduled",
-          "detail": "11/15 - 1:00 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Lucas Oil Stadium",
           "broadcast": "CBS",
           "neutralSite": false,
@@ -620,8 +644,8 @@
             "abbr": "IND",
             "name": "Indianapolis Colts",
             "shortName": "Colts",
-            "score": null,
-            "winner": false,
+            "score": "24",
+            "winner": true,
             "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
           },
           "away": {
@@ -629,7 +653,7 @@
             "abbr": "MIA",
             "name": "Miami Dolphins",
             "shortName": "Dolphins",
-            "score": null,
+            "score": "22",
             "winner": false,
             "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/mia.png"
           },
@@ -855,11 +879,11 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "5-8",
+      "record": "5-9",
       "wins": 5,
-      "losses": 8,
+      "losses": 9,
       "ties": 0,
-      "streak": "W2",
+      "streak": "L1",
       "seed": "10",
       "standingName": "Central",
       "conference": "Eastern Conference",
@@ -869,11 +893,11 @@
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
           "wins": 1,
-          "losses": 12,
+          "losses": 13,
           "ties": null,
-          "pct": ".077",
-          "streak": "L9",
-          "diff": "-183",
+          "pct": ".071",
+          "streak": "L10",
+          "diff": "-190",
           "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
@@ -897,11 +921,11 @@
           "name": "Pacers",
           "fullName": "Indiana Pacers",
           "wins": 5,
-          "losses": 8,
+          "losses": 9,
           "ties": null,
-          "pct": ".385",
-          "streak": "W2",
-          "diff": "-27",
+          "pct": ".357",
+          "streak": "L1",
+          "diff": "-34",
           "seed": "10",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
@@ -916,7 +940,7 @@
           "pct": ".500",
           "streak": "W1",
           "diff": "+23",
-          "seed": "6",
+          "seed": "7",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
         },
@@ -957,22 +981,10 @@
           "reason": "Hamstring"
         },
         {
-          "name": "Aaron Nesmith",
-          "position": "G",
-          "status": "Day-to-day",
-          "reason": "Hand"
-        },
-        {
           "name": "Andrew Nembhard",
           "position": "G",
           "status": "Day-to-day",
           "reason": "Hip"
-        },
-        {
-          "name": "T.J. McConnell",
-          "position": "G",
-          "status": "Day-to-day",
-          "reason": "Hamstring"
         },
         {
           "name": "Bennedict Mathurin",
@@ -985,28 +997,25 @@
           "position": "F",
           "status": "Active",
           "reason": null
+        },
+        {
+          "name": "T.J. McConnell",
+          "position": "G",
+          "status": "Active",
+          "reason": null
         }
       ],
       "nextGame": {
-        "id": "401909985",
-        "start": "2026-11-15T18:00Z",
+        "id": "401910008",
+        "start": "2026-11-19T00:00Z",
         "status": "scheduled",
-        "detail": "11/15 - 1:00 PM EST",
+        "detail": "11/18 - 7:00 PM EST",
         "timeValid": true,
-        "phase": "Pregame",
-        "venue": "Xfinity Mobile Arena",
+        "phase": null,
+        "venue": "Gainbridge Fieldhouse",
         "broadcast": "DAZN IND",
         "neutralSite": false,
         "home": {
-          "id": "20",
-          "abbr": "PHI",
-          "name": "Philadelphia 76ers",
-          "shortName": "76ers",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
-        },
-        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indiana Pacers",
@@ -1015,9 +1024,48 @@
           "winner": false,
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
-        "ours": "away"
+        "away": {
+          "id": "10",
+          "abbr": "HOU",
+          "name": "Houston Rockets",
+          "shortName": "Rockets",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png"
+        },
+        "ours": "home"
       },
       "recent": [
+        {
+          "id": "401909985",
+          "start": "2026-11-15T18:00Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Xfinity Mobile Arena",
+          "broadcast": "DAZN IND",
+          "neutralSite": false,
+          "home": {
+            "id": "20",
+            "abbr": "PHI",
+            "name": "Philadelphia 76ers",
+            "shortName": "76ers",
+            "score": "131",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png"
+          },
+          "away": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "124",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          },
+          "ours": "away"
+        },
         {
           "id": "401909296",
           "start": "2026-11-14T00:00Z",
@@ -1137,36 +1185,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/den.png"
           },
           "ours": "home"
-        },
-        {
-          "id": "401909927",
-          "start": "2026-11-05T01:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "FedExForum",
-          "broadcast": "DAZN MEM",
-          "neutralSite": false,
-          "home": {
-            "id": "29",
-            "abbr": "MEM",
-            "name": "Memphis Grizzlies",
-            "shortName": "Grizzlies",
-            "score": "103",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mem.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "107",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "ours": "away"
         }
       ],
       "schedule": [
@@ -1563,10 +1581,10 @@
         {
           "id": "401909985",
           "start": "2026-11-15T18:00Z",
-          "status": "scheduled",
-          "detail": "11/15 - 1:00 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Xfinity Mobile Arena",
           "broadcast": "DAZN IND",
           "neutralSite": false,
@@ -1575,18 +1593,18 @@
             "abbr": "PHI",
             "name": "Philadelphia 76ers",
             "shortName": "76ers",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
+            "score": "131",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png"
           },
           "away": {
             "id": "11",
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
+            "score": "124",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "ours": "away"
         },
@@ -14365,33 +14383,6 @@
             ]
           },
           {
-            "id": "401913650",
-            "weightClass": "Middleweight",
-            "status": "scheduled",
-            "detail": "12/12 - 9:00 PM EST",
-            "method": null,
-            "finish": null,
-            "note": null,
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Joe Pyfer",
-                "record": "16-3-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              },
-              {
-                "name": "Bo Nickal",
-                "record": "9-1-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
-                "country": "USA"
-              }
-            ]
-          },
-          {
             "id": "401913651",
             "weightClass": "Flyweight",
             "status": "scheduled",
@@ -14454,7 +14445,7 @@
             "finish": null,
             "note": null,
             "mainEvent": false,
-            "card": "prelim",
+            "card": "main",
             "fighters": [
               {
                 "name": "Junior Tafa",
