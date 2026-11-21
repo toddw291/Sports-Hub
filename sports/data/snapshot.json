@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-20T19:04:58.634Z",
+  "updatedAt": "2026-11-21T17:57:04.320Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -126,18 +126,6 @@
           "position": "TE",
           "status": "Out",
           "reason": "Hamstring"
-        },
-        {
-          "name": "Akeem Davis-Gaither",
-          "position": "LB",
-          "status": "IR",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jaylon Carlies",
-          "position": "LB",
-          "status": "IR",
-          "reason": "Neck"
         },
         {
           "name": "Seth McGowan",
@@ -873,12 +861,12 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "5-10",
+      "record": "5-11",
       "wins": 5,
-      "losses": 10,
+      "losses": 11,
       "ties": 0,
-      "streak": "L2",
-      "seed": "10",
+      "streak": "L3",
+      "seed": "11",
       "standingName": "Central",
       "conference": "Eastern Conference",
       "standings": [
@@ -901,11 +889,11 @@
           "name": "Bulls",
           "fullName": "Chicago Bulls",
           "wins": 4,
-          "losses": 10,
+          "losses": 11,
           "ties": null,
-          "pct": ".286",
-          "streak": "W1",
-          "diff": "-117",
+          "pct": ".267",
+          "streak": "L1",
+          "diff": "-121",
           "seed": "13",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
@@ -915,12 +903,12 @@
           "name": "Pacers",
           "fullName": "Indiana Pacers",
           "wins": 5,
-          "losses": 10,
+          "losses": 11,
           "ties": null,
-          "pct": ".333",
-          "streak": "L2",
-          "diff": "-49",
-          "seed": "10",
+          "pct": ".313",
+          "streak": "L3",
+          "diff": "-58",
+          "seed": "11",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
         },
@@ -928,12 +916,12 @@
           "abbr": "CLE",
           "name": "Cavaliers",
           "fullName": "Cleveland Cavaliers",
-          "wins": 8,
+          "wins": 9,
           "losses": 8,
           "ties": null,
-          "pct": ".500",
-          "streak": "L1",
-          "diff": "+31",
+          "pct": ".529",
+          "streak": "W1",
+          "diff": "+40",
           "seed": "7",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
@@ -943,18 +931,18 @@
           "name": "Pistons",
           "fullName": "Detroit Pistons",
           "wins": 10,
-          "losses": 4,
+          "losses": 5,
           "ties": null,
-          "pct": ".714",
-          "streak": "W2",
-          "diff": "+90",
+          "pct": ".667",
+          "streak": "L1",
+          "diff": "+87",
           "seed": "3",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
           "ours": false
         }
       ],
       "byeWeek": null,
-      "seasonState": "NBA Cup",
+      "seasonState": "Regular season",
       "availability": [
         {
           "name": "Ben Sheppard",
@@ -975,22 +963,16 @@
           "reason": "Hamstring"
         },
         {
-          "name": "Andrew Nembhard",
-          "position": "G",
-          "status": "Day-to-day",
-          "reason": "Hip"
-        },
-        {
-          "name": "Braden Smith",
-          "position": "G",
-          "status": "Day-to-day",
-          "reason": "Ankle"
-        },
-        {
           "name": "T.J. McConnell",
           "position": "G",
           "status": "Day-to-day",
           "reason": "Hamstring"
+        },
+        {
+          "name": "Andrew Nembhard",
+          "position": "G",
+          "status": "Active",
+          "reason": null
         },
         {
           "name": "Bennedict Mathurin",
@@ -1006,23 +988,23 @@
         }
       ],
       "nextGame": {
-        "id": "401909307",
-        "start": "2026-11-21T00:30Z",
+        "id": "401910034",
+        "start": "2026-11-23T01:00Z",
         "status": "scheduled",
-        "detail": "11/20 - 7:30 PM EST",
+        "detail": "11/22 - 8:00 PM EST",
         "timeValid": true,
-        "phase": "Pregame",
-        "venue": "Rocket Arena",
-        "broadcast": "DAZN CLE",
+        "phase": null,
+        "venue": "Madison Square Garden",
+        "broadcast": "DAZN IND",
         "neutralSite": false,
         "home": {
-          "id": "5",
-          "abbr": "CLE",
-          "name": "Cleveland Cavaliers",
-          "shortName": "Cavaliers",
+          "id": "18",
+          "abbr": "NY",
+          "name": "New York Knicks",
+          "shortName": "Knicks",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png"
         },
         "away": {
           "id": "11",
@@ -1031,11 +1013,41 @@
           "shortName": "Pacers",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
         "ours": "away"
       },
       "recent": [
+        {
+          "id": "401909307",
+          "start": "2026-11-21T00:30Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Rocket Arena",
+          "broadcast": "DAZN CLE",
+          "neutralSite": false,
+          "home": {
+            "id": "5",
+            "abbr": "CLE",
+            "name": "Cleveland Cavaliers",
+            "shortName": "Cavaliers",
+            "score": "128",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png"
+          },
+          "away": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "119",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          },
+          "ours": "away"
+        },
         {
           "id": "401910008",
           "start": "2026-11-19T00:00Z",
@@ -1155,36 +1167,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png"
           },
           "ours": "home"
-        },
-        {
-          "id": "401909956",
-          "start": "2026-11-10T01:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "American Airlines Center",
-          "broadcast": "KFAA-TV",
-          "neutralSite": false,
-          "home": {
-            "id": "6",
-            "abbr": "DAL",
-            "name": "Dallas Mavericks",
-            "shortName": "Mavericks",
-            "score": "125",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/dal.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "122",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "ours": "away"
         }
       ],
       "schedule": [
@@ -1641,10 +1623,10 @@
         {
           "id": "401909307",
           "start": "2026-11-21T00:30Z",
-          "status": "scheduled",
-          "detail": "11/20 - 7:30 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Rocket Arena",
           "broadcast": "DAZN CLE",
           "neutralSite": false,
@@ -1653,18 +1635,18 @@
             "abbr": "CLE",
             "name": "Cleveland Cavaliers",
             "shortName": "Cavaliers",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/cle.png"
+            "score": "128",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png"
           },
           "away": {
             "id": "11",
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
+            "score": "119",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
         },
@@ -8630,8 +8612,8 @@
       "name": "UFC Fight Night: Procházka vs. Stirling",
       "shortName": "UFC Fight Night",
       "start": "2026-11-21T15:00Z",
-      "status": "scheduled",
-      "detail": "Scheduled",
+      "status": "in",
+      "detail": "In Progress",
       "timeValid": true,
       "venue": "ABHA Arena, Doha",
       "broadcast": "Paramount+",
@@ -8774,8 +8756,8 @@
         {
           "id": "401927854",
           "weightClass": "Bantamweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
+          "status": "in",
+          "detail": "R3, 2:28",
           "method": null,
           "finish": null,
           "note": null,
@@ -8801,9 +8783,9 @@
         {
           "id": "401927852",
           "weightClass": "Heavyweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "Decision",
           "finish": null,
           "note": null,
           "mainEvent": false,
@@ -8811,15 +8793,15 @@
           "fighters": [
             {
               "name": "Shamil Gaziev",
-              "record": "15-3-0",
+              "record": "15-4-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/brn.png",
               "country": "Bahrain"
             },
             {
               "name": "Tallison Teixeira",
-              "record": "9-2-0",
-              "winner": false,
+              "record": "10-2-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
               "country": "Brazil"
             }
@@ -8828,24 +8810,24 @@
         {
           "id": "401927856",
           "weightClass": "Flyweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
-          "finish": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "Submission",
+          "finish": "R3 4:34",
           "note": null,
           "mainEvent": false,
           "card": "prelim",
           "fighters": [
             {
               "name": "Amir Albazi",
-              "record": "17-3-0",
-              "winner": false,
+              "record": "18-3-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
               "country": "Iraq"
             },
             {
               "name": "Alessandro Costa",
-              "record": "17-5-0",
+              "record": "17-6-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
               "country": "Brazil"
@@ -8855,9 +8837,9 @@
         {
           "id": "401927853",
           "weightClass": "Welterweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "Decision",
           "finish": null,
           "note": null,
           "mainEvent": false,
@@ -8865,15 +8847,15 @@
           "fighters": [
             {
               "name": "Jake Matthews",
-              "record": "23-8-0",
+              "record": "23-9-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
               "country": "Australia"
             },
             {
               "name": "Tahir Abdullayev",
-              "record": "20-3-0",
-              "winner": false,
+              "record": "21-3-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
               "country": "Azerbaijan"
             }
@@ -8882,9 +8864,9 @@
         {
           "id": "401934355",
           "weightClass": "Lightweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "Decision",
           "finish": null,
           "note": null,
           "mainEvent": false,
@@ -8892,15 +8874,15 @@
           "fighters": [
             {
               "name": "Nikolas Motta",
-              "record": "15-6-0",
+              "record": "15-7-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
               "country": "USA"
             },
             {
               "name": "Dom Mar Fan",
-              "record": "9-3-0",
-              "winner": false,
+              "record": "10-3-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
               "country": "Australia"
             }
@@ -8909,24 +8891,24 @@
         {
           "id": "401934356",
           "weightClass": "Light Heavyweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
-          "finish": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "KO/TKO",
+          "finish": "R2 0:24",
           "note": null,
           "mainEvent": false,
           "card": "prelim",
           "fighters": [
             {
               "name": "Diyar Nurgozhay",
-              "record": "12-2-0",
-              "winner": false,
+              "record": "13-2-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
               "country": "Kazakhstan"
             },
             {
               "name": "Alik Lorenz",
-              "record": "8-2-0",
+              "record": "8-3-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
               "country": "USA"
@@ -8936,25 +8918,25 @@
         {
           "id": "401935762",
           "weightClass": "Lightweight",
-          "status": "scheduled",
-          "detail": "11/21 - 10:00 AM EST",
-          "method": null,
-          "finish": null,
+          "status": "final",
+          "detail": "Final",
+          "method": "KO/TKO",
+          "finish": "R1 3:50",
           "note": null,
           "mainEvent": false,
           "card": "prelim",
           "fighters": [
             {
               "name": "Shoaib Yousaf",
-              "record": "14-3-0",
+              "record": "14-4-0",
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
               "country": "England"
             },
             {
               "name": "John Mitchell",
-              "record": "11-3-0",
-              "winner": false,
+              "record": "12-3-0",
+              "winner": true,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irl.png",
               "country": "Ireland"
             }
@@ -13365,8 +13347,8 @@
         "name": "UFC Fight Night: Procházka vs. Stirling",
         "shortName": "UFC Fight Night",
         "start": "2026-11-21T15:00Z",
-        "status": "scheduled",
-        "detail": "Scheduled",
+        "status": "in",
+        "detail": "In Progress",
         "timeValid": true,
         "venue": "ABHA Arena, Doha",
         "broadcast": "Paramount+",
@@ -13509,8 +13491,8 @@
           {
             "id": "401927854",
             "weightClass": "Bantamweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
+            "status": "in",
+            "detail": "R3, 2:28",
             "method": null,
             "finish": null,
             "note": null,
@@ -13536,9 +13518,9 @@
           {
             "id": "401927852",
             "weightClass": "Heavyweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "Decision",
             "finish": null,
             "note": null,
             "mainEvent": false,
@@ -13546,15 +13528,15 @@
             "fighters": [
               {
                 "name": "Shamil Gaziev",
-                "record": "15-3-0",
+                "record": "15-4-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/brn.png",
                 "country": "Bahrain"
               },
               {
                 "name": "Tallison Teixeira",
-                "record": "9-2-0",
-                "winner": false,
+                "record": "10-2-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
                 "country": "Brazil"
               }
@@ -13563,24 +13545,24 @@
           {
             "id": "401927856",
             "weightClass": "Flyweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "Submission",
+            "finish": "R3 4:34",
             "note": null,
             "mainEvent": false,
             "card": "prelim",
             "fighters": [
               {
                 "name": "Amir Albazi",
-                "record": "17-3-0",
-                "winner": false,
+                "record": "18-3-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irq.png",
                 "country": "Iraq"
               },
               {
                 "name": "Alessandro Costa",
-                "record": "17-5-0",
+                "record": "17-6-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
                 "country": "Brazil"
@@ -13590,9 +13572,9 @@
           {
             "id": "401927853",
             "weightClass": "Welterweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "Decision",
             "finish": null,
             "note": null,
             "mainEvent": false,
@@ -13600,15 +13582,15 @@
             "fighters": [
               {
                 "name": "Jake Matthews",
-                "record": "23-8-0",
+                "record": "23-9-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
                 "country": "Australia"
               },
               {
                 "name": "Tahir Abdullayev",
-                "record": "20-3-0",
-                "winner": false,
+                "record": "21-3-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aze.png",
                 "country": "Azerbaijan"
               }
@@ -13617,9 +13599,9 @@
           {
             "id": "401934355",
             "weightClass": "Lightweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "Decision",
             "finish": null,
             "note": null,
             "mainEvent": false,
@@ -13627,15 +13609,15 @@
             "fighters": [
               {
                 "name": "Nikolas Motta",
-                "record": "15-6-0",
+                "record": "15-7-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
               },
               {
                 "name": "Dom Mar Fan",
-                "record": "9-3-0",
-                "winner": false,
+                "record": "10-3-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
                 "country": "Australia"
               }
@@ -13644,24 +13626,24 @@
           {
             "id": "401934356",
             "weightClass": "Light Heavyweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "KO/TKO",
+            "finish": "R2 0:24",
             "note": null,
             "mainEvent": false,
             "card": "prelim",
             "fighters": [
               {
                 "name": "Diyar Nurgozhay",
-                "record": "12-2-0",
-                "winner": false,
+                "record": "13-2-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/kaz.png",
                 "country": "Kazakhstan"
               },
               {
                 "name": "Alik Lorenz",
-                "record": "8-2-0",
+                "record": "8-3-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
@@ -13671,25 +13653,25 @@
           {
             "id": "401935762",
             "weightClass": "Lightweight",
-            "status": "scheduled",
-            "detail": "11/21 - 10:00 AM EST",
-            "method": null,
-            "finish": null,
+            "status": "final",
+            "detail": "Final",
+            "method": "KO/TKO",
+            "finish": "R1 3:50",
             "note": null,
             "mainEvent": false,
             "card": "prelim",
             "fighters": [
               {
                 "name": "Shoaib Yousaf",
-                "record": "14-3-0",
+                "record": "14-4-0",
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
                 "country": "England"
               },
               {
                 "name": "John Mitchell",
-                "record": "11-3-0",
-                "winner": false,
+                "record": "12-3-0",
+                "winner": true,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/irl.png",
                 "country": "Ireland"
               }
@@ -14127,6 +14109,60 @@
             ]
           },
           {
+            "id": "401936139",
+            "weightClass": "Middleweight",
+            "status": "scheduled",
+            "detail": "12/12 - 9:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Damian Pinas",
+                "record": "11-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aru.png",
+                "country": "Aruba"
+              },
+              {
+                "name": "Baisangur Susurkaev",
+                "record": "12-0-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/rus.png",
+                "country": "Russia"
+              }
+            ]
+          },
+          {
+            "id": "401936138",
+            "weightClass": "Bantamweight",
+            "status": "scheduled",
+            "detail": "12/12 - 9:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Kyler Phillips",
+                "record": "12-5-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              },
+              {
+                "name": "Ethyn Ewing",
+                "record": "10-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              }
+            ]
+          },
+          {
             "id": "401930356",
             "weightClass": "Light Heavyweight",
             "status": "scheduled",
@@ -14135,7 +14171,7 @@
             "finish": null,
             "note": null,
             "mainEvent": false,
-            "card": "main",
+            "card": "prelim",
             "fighters": [
               {
                 "name": "Junior Tafa",
@@ -14150,6 +14186,33 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
+              }
+            ]
+          },
+          {
+            "id": "401936140",
+            "weightClass": null,
+            "status": "scheduled",
+            "detail": "12/12 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "TBA",
+                "record": null,
+                "winner": false,
+                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
+                "country": "default"
+              },
+              {
+                "name": "Opponent TBA",
+                "record": null,
+                "winner": false,
+                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
+                "country": "default"
               }
             ]
           }
@@ -14653,7 +14716,7 @@
           },
           {
             "id": "401930621",
-            "weightClass": null,
+            "weightClass": "Lightweight",
             "status": "scheduled",
             "detail": "1/30 - 7:00 PM EST",
             "method": null,
@@ -14663,24 +14726,24 @@
             "card": "main",
             "fighters": [
               {
-                "name": "TBA",
-                "record": null,
+                "name": "Michael Johnson",
+                "record": "25-20-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
               },
               {
-                "name": "Opponent TBA",
-                "record": null,
+                "name": "Lance Gibson Jr.",
+                "record": "10-2-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                "country": "Canada"
               }
             ]
           },
           {
             "id": "401930623",
-            "weightClass": null,
+            "weightClass": "Bantamweight",
             "status": "scheduled",
             "detail": "1/30 - 5:00 PM EST",
             "method": null,
@@ -14690,18 +14753,45 @@
             "card": "main",
             "fighters": [
               {
-                "name": "TBA",
-                "record": null,
+                "name": "Serhiy Sidey",
+                "record": "12-2-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ukr.png",
+                "country": "Ukraine"
               },
               {
-                "name": "Opponent TBA",
-                "record": null,
+                "name": "Louis Lee Scott",
+                "record": "10-0-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
+                "country": "England"
+              }
+            ]
+          },
+          {
+            "id": "401936141",
+            "weightClass": "Welterweight",
+            "status": "scheduled",
+            "detail": "1/30 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "main",
+            "fighters": [
+              {
+                "name": "Sean Clancy Jr.",
+                "record": "9-0-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sct.png",
+                "country": "Scotland"
+              },
+              {
+                "name": "Cam Nelson",
+                "record": "8-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                "country": "Canada"
               }
             ]
           }
@@ -14931,6 +15021,33 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/sko.png",
                 "country": "South Korea"
+              }
+            ]
+          },
+          {
+            "id": "401936142",
+            "weightClass": "Welterweight",
+            "status": "scheduled",
+            "detail": "2/6 - 2:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Sam Patterson",
+                "record": "15-3-1",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
+                "country": "England"
+              },
+              {
+                "name": "Jonathan Micallef",
+                "record": "10-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/aus.png",
+                "country": "Australia"
               }
             ]
           }
