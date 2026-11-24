@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-23T22:37:06.648Z",
+  "updatedAt": "2026-11-24T21:08:59.592Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -35,7 +35,7 @@
           "pct": ".700",
           "streak": "L1",
           "diff": "+120",
-          "seed": "4",
+          "seed": "3",
           "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/jax.png",
           "ours": false
         },
@@ -86,44 +86,8 @@
       "seasonState": "Regular season",
       "availability": [
         {
-          "name": "Bernhard Raimann",
-          "position": "OT",
-          "status": "Out",
-          "reason": "Concussion"
-        },
-        {
-          "name": "Charvarius Ward",
-          "position": "CB",
-          "status": "Out",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jalen Travis",
-          "position": "OT",
-          "status": "Out",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jerry Tillery",
-          "position": "DT",
-          "status": "Out",
-          "reason": "Calf"
-        },
-        {
-          "name": "Sauce Gardner",
-          "position": "CB",
-          "status": "Out",
-          "reason": "Calf"
-        },
-        {
           "name": "Seth McGowan",
           "position": "RB",
-          "status": "Out",
-          "reason": "Hamstring"
-        },
-        {
-          "name": "Will Mallory",
-          "position": "TE",
           "status": "Out",
           "reason": "Hamstring"
         },
@@ -132,6 +96,48 @@
           "position": "WR",
           "status": "IR",
           "reason": "Heel"
+        },
+        {
+          "name": "Caden Curry",
+          "position": "LB",
+          "status": "IR",
+          "reason": "Undisclosed"
+        },
+        {
+          "name": "Bernhard Raimann",
+          "position": "OT",
+          "status": "Questionable",
+          "reason": "Concussion"
+        },
+        {
+          "name": "Charvarius Ward",
+          "position": "CB",
+          "status": "Questionable",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jalen Travis",
+          "position": "OT",
+          "status": "Questionable",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jerry Tillery",
+          "position": "DT",
+          "status": "Questionable",
+          "reason": "Calf"
+        },
+        {
+          "name": "Sauce Gardner",
+          "position": "CB",
+          "status": "Questionable",
+          "reason": "Calf"
+        },
+        {
+          "name": "Will Mallory",
+          "position": "TE",
+          "status": "Questionable",
+          "reason": "Hamstring"
         },
         {
           "name": "Daniel Jones",
@@ -855,11 +861,11 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "5-12",
-      "wins": 5,
+      "record": "6-12",
+      "wins": 6,
       "losses": 12,
       "ties": 0,
-      "streak": "L4",
+      "streak": "W1",
       "seed": "11",
       "standingName": "Central",
       "conference": "Eastern Conference",
@@ -868,12 +874,12 @@
           "abbr": "MIL",
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
-          "wins": 1,
+          "wins": 2,
           "losses": 16,
           "ties": null,
-          "pct": ".059",
-          "streak": "L13",
-          "diff": "-210",
+          "pct": ".111",
+          "streak": "W1",
+          "diff": "-205",
           "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
@@ -882,13 +888,13 @@
           "abbr": "CHI",
           "name": "Bulls",
           "fullName": "Chicago Bulls",
-          "wins": 4,
+          "wins": 5,
           "losses": 12,
           "ties": null,
-          "pct": ".250",
-          "streak": "L2",
-          "diff": "-127",
-          "seed": "13",
+          "pct": ".294",
+          "streak": "W1",
+          "diff": "-113",
+          "seed": "12",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
         },
@@ -896,12 +902,12 @@
           "abbr": "IND",
           "name": "Pacers",
           "fullName": "Indiana Pacers",
-          "wins": 5,
+          "wins": 6,
           "losses": 12,
           "ties": null,
-          "pct": ".294",
-          "streak": "L4",
-          "diff": "-65",
+          "pct": ".333",
+          "streak": "W1",
+          "diff": "-60",
           "seed": "11",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
           "ours": true
@@ -911,11 +917,11 @@
           "name": "Cavaliers",
           "fullName": "Cleveland Cavaliers",
           "wins": 9,
-          "losses": 8,
+          "losses": 9,
           "ties": null,
-          "pct": ".529",
-          "streak": "W1",
-          "diff": "+40",
+          "pct": ".500",
+          "streak": "L1",
+          "diff": "+26",
           "seed": "7",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/cle.png",
           "ours": false
@@ -936,31 +942,13 @@
         }
       ],
       "byeWeek": null,
-      "seasonState": "Regular season",
+      "seasonState": "NBA Cup",
       "availability": [
-        {
-          "name": "Aaron Nesmith",
-          "position": "G",
-          "status": "Out",
-          "reason": "Foot"
-        },
         {
           "name": "Ben Sheppard",
           "position": "G",
           "status": "Out",
           "reason": "Knee"
-        },
-        {
-          "name": "Johnny Furphy",
-          "position": "G",
-          "status": "Out",
-          "reason": "Knee"
-        },
-        {
-          "name": "T.J. McConnell",
-          "position": "G",
-          "status": "Out",
-          "reason": "Hamstring"
         },
         {
           "name": "Tyrese Haliburton",
@@ -969,10 +957,22 @@
           "reason": "Hamstring"
         },
         {
-          "name": "Pascal Siakam",
+          "name": "Aaron Nesmith",
+          "position": "G",
+          "status": "Day-to-day",
+          "reason": "Foot"
+        },
+        {
+          "name": "Larry Nance Jr.",
           "position": "F",
           "status": "Day-to-day",
-          "reason": "Hip"
+          "reason": "Ankle"
+        },
+        {
+          "name": "T.J. McConnell",
+          "position": "G",
+          "status": "Day-to-day",
+          "reason": "Hamstring"
         },
         {
           "name": "Andrew Nembhard",
@@ -985,17 +985,23 @@
           "position": "G",
           "status": "Active",
           "reason": null
+        },
+        {
+          "name": "Pascal Siakam",
+          "position": "F",
+          "status": "Active",
+          "reason": null
         }
       ],
       "nextGame": {
-        "id": "401910038",
-        "start": "2026-11-24T00:30Z",
+        "id": "401909328",
+        "start": "2026-11-28T00:30Z",
         "status": "scheduled",
-        "detail": "11/23 - 7:30 PM EST",
+        "detail": "11/27 - 7:30 PM EST",
         "timeValid": true,
-        "phase": "Pregame",
+        "phase": null,
         "venue": "Gainbridge Fieldhouse",
-        "broadcast": "KSBI, Thunder App",
+        "broadcast": null,
         "neutralSite": false,
         "home": {
           "id": "11",
@@ -1004,20 +1010,50 @@
           "shortName": "Pacers",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
         },
         "away": {
-          "id": "25",
-          "abbr": "OKC",
-          "name": "Oklahoma City Thunder",
-          "shortName": "Thunder",
+          "id": "20",
+          "abbr": "PHI",
+          "name": "Philadelphia 76ers",
+          "shortName": "76ers",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
         },
         "ours": "home"
       },
       "recent": [
+        {
+          "id": "401910038",
+          "start": "2026-11-24T00:30Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Gainbridge Fieldhouse",
+          "broadcast": "KSBI",
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "125",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          },
+          "away": {
+            "id": "25",
+            "abbr": "OKC",
+            "name": "Oklahoma City Thunder",
+            "shortName": "Thunder",
+            "score": "120",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png"
+          },
+          "ours": "home"
+        },
         {
           "id": "401910034",
           "start": "2026-11-23T01:00Z",
@@ -1137,36 +1173,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "ours": "away"
-        },
-        {
-          "id": "401909296",
-          "start": "2026-11-14T00:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "Gainbridge Fieldhouse",
-          "broadcast": "Prime Video",
-          "neutralSite": false,
-          "home": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "106",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "away": {
-            "id": "18",
-            "abbr": "NY",
-            "name": "New York Knicks",
-            "shortName": "Knicks",
-            "score": "104",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ny.png"
-          },
-          "ours": "home"
         }
       ],
       "schedule": [
@@ -1683,30 +1689,30 @@
         {
           "id": "401910038",
           "start": "2026-11-24T00:30Z",
-          "status": "scheduled",
-          "detail": "11/23 - 7:30 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Gainbridge Fieldhouse",
-          "broadcast": "KSBI, Thunder App",
+          "broadcast": "KSBI",
           "neutralSite": false,
           "home": {
             "id": "11",
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "score": "125",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "25",
             "abbr": "OKC",
             "name": "Oklahoma City Thunder",
             "shortName": "Thunder",
-            "score": null,
+            "score": "120",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/okc.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/okc.png"
           },
           "ours": "home"
         },
@@ -8968,6 +8974,33 @@
               "country": "Spain"
             }
           ]
+        },
+        {
+          "id": "401936473",
+          "weightClass": "Lightweight",
+          "status": "scheduled",
+          "detail": "12/5 - 10:00 AM EST",
+          "method": null,
+          "finish": null,
+          "note": null,
+          "mainEvent": false,
+          "card": "prelim",
+          "fighters": [
+            {
+              "name": "Mateusz Rębecki",
+              "record": "21-5-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/pol.png",
+              "country": "Poland"
+            },
+            {
+              "name": "Elves Brener",
+              "record": "17-6-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+              "country": "Brazil"
+            }
+          ]
         }
       ]
     },
@@ -14013,6 +14046,33 @@
                 "country": "Spain"
               }
             ]
+          },
+          {
+            "id": "401936473",
+            "weightClass": "Lightweight",
+            "status": "scheduled",
+            "detail": "12/5 - 10:00 AM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Mateusz Rębecki",
+                "record": "21-5-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/pol.png",
+                "country": "Poland"
+              },
+              {
+                "name": "Elves Brener",
+                "record": "17-6-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              }
+            ]
           }
         ]
       },
@@ -14819,6 +14879,87 @@
                 "winner": false,
                 "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
                 "country": "USA"
+              }
+            ]
+          },
+          {
+            "id": "401936458",
+            "weightClass": null,
+            "status": "scheduled",
+            "detail": "1/30 - 7:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Gable Steveson",
+                "record": "4-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              },
+              {
+                "name": "Terrance Chatman",
+                "record": "5-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/usa.png",
+                "country": "USA"
+              }
+            ]
+          },
+          {
+            "id": "401936459",
+            "weightClass": null,
+            "status": "scheduled",
+            "detail": "1/30 - 7:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Tanner Boser",
+                "record": "23-11-1",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                "country": "Canada"
+              },
+              {
+                "name": "José Montanha",
+                "record": "7-1-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              }
+            ]
+          },
+          {
+            "id": "401936460",
+            "weightClass": "Middleweight",
+            "status": "scheduled",
+            "detail": "1/30 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Julien LeBlanc",
+                "record": "10-4-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/can.png",
+                "country": "Canada"
+              },
+              {
+                "name": "Vlasto Čepo",
+                "record": "14-4-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/ser.png",
+                "country": "Serbia"
               }
             ]
           }
