@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-24T21:08:59.592Z",
+  "updatedAt": "2026-11-25T20:27:32.382Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -101,7 +101,7 @@
           "name": "Caden Curry",
           "position": "LB",
           "status": "IR",
-          "reason": "Undisclosed"
+          "reason": "Wrist"
         },
         {
           "name": "Bernhard Raimann",
@@ -175,7 +175,7 @@
           "shortName": "Colts",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
         },
         "away": {
           "id": "19",
@@ -184,7 +184,7 @@
           "shortName": "Giants",
           "score": null,
           "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png"
+          "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
         },
         "ours": "home"
       },
@@ -206,7 +206,7 @@
             "shortName": "Texans",
             "score": "26",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png"
           },
           "away": {
             "id": "11",
@@ -215,7 +215,7 @@
             "shortName": "Colts",
             "score": "3",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
           },
           "ours": "away"
         },
@@ -658,7 +658,7 @@
             "shortName": "Texans",
             "score": "26",
             "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/hou.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/hou.png"
           },
           "away": {
             "id": "11",
@@ -667,7 +667,7 @@
             "shortName": "Colts",
             "score": "3",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
           },
           "ours": "away"
         },
@@ -688,7 +688,7 @@
             "shortName": "Colts",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/ind.png"
           },
           "away": {
             "id": "19",
@@ -697,7 +697,7 @@
             "shortName": "Giants",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/nyg.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nfl/500/scoreboard/nyg.png"
           },
           "ours": "home"
         },
@@ -930,13 +930,13 @@
           "abbr": "DET",
           "name": "Pistons",
           "fullName": "Detroit Pistons",
-          "wins": 10,
+          "wins": 11,
           "losses": 6,
           "ties": null,
-          "pct": ".625",
-          "streak": "L2",
-          "diff": "+77",
-          "seed": "5",
+          "pct": ".647",
+          "streak": "W1",
+          "diff": "+95",
+          "seed": "4",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
           "ours": false
         }
@@ -8706,33 +8706,6 @@
           ]
         },
         {
-          "id": "401936244",
-          "weightClass": "Featherweight",
-          "status": "scheduled",
-          "detail": "12/5 - 1:00 PM EST",
-          "method": null,
-          "finish": null,
-          "note": null,
-          "mainEvent": false,
-          "card": "main",
-          "fighters": [
-            {
-              "name": "Gabriel Santos",
-              "record": "12-2-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-              "country": "Brazil"
-            },
-            {
-              "name": "Luke Riley",
-              "record": "14-0-0",
-              "winner": false,
-              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
-              "country": "England"
-            }
-          ]
-        },
-        {
           "id": "401933598",
           "weightClass": "Welterweight",
           "status": "scheduled",
@@ -8768,7 +8741,7 @@
           "finish": null,
           "note": null,
           "mainEvent": false,
-          "card": "prelim",
+          "card": "main",
           "fighters": [
             {
               "name": "Mairon Santos",
@@ -8972,6 +8945,33 @@
               "winner": false,
               "flag": "https://a.espncdn.com/i/teamlogos/countries/500/esp.png",
               "country": "Spain"
+            }
+          ]
+        },
+        {
+          "id": "401936244",
+          "weightClass": "Featherweight",
+          "status": "scheduled",
+          "detail": "12/5 - 1:00 PM EST",
+          "method": null,
+          "finish": null,
+          "note": null,
+          "mainEvent": false,
+          "card": "prelim",
+          "fighters": [
+            {
+              "name": "Gabriel Santos",
+              "record": "12-2-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+              "country": "Brazil"
+            },
+            {
+              "name": "Luke Riley",
+              "record": "14-0-0",
+              "winner": false,
+              "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
+              "country": "England"
             }
           ]
         },
@@ -13778,33 +13778,6 @@
             ]
           },
           {
-            "id": "401936244",
-            "weightClass": "Featherweight",
-            "status": "scheduled",
-            "detail": "12/5 - 1:00 PM EST",
-            "method": null,
-            "finish": null,
-            "note": null,
-            "mainEvent": false,
-            "card": "main",
-            "fighters": [
-              {
-                "name": "Gabriel Santos",
-                "record": "12-2-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
-                "country": "Brazil"
-              },
-              {
-                "name": "Luke Riley",
-                "record": "14-0-0",
-                "winner": false,
-                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
-                "country": "England"
-              }
-            ]
-          },
-          {
             "id": "401933598",
             "weightClass": "Welterweight",
             "status": "scheduled",
@@ -13840,7 +13813,7 @@
             "finish": null,
             "note": null,
             "mainEvent": false,
-            "card": "prelim",
+            "card": "main",
             "fighters": [
               {
                 "name": "Mairon Santos",
@@ -14048,6 +14021,33 @@
             ]
           },
           {
+            "id": "401936244",
+            "weightClass": "Featherweight",
+            "status": "scheduled",
+            "detail": "12/5 - 1:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Gabriel Santos",
+                "record": "12-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
+              },
+              {
+                "name": "Luke Riley",
+                "record": "14-0-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/eng.png",
+                "country": "England"
+              }
+            ]
+          },
+          {
             "id": "401936473",
             "weightClass": "Lightweight",
             "status": "scheduled",
@@ -14226,7 +14226,7 @@
             "id": "401930356",
             "weightClass": "Light Heavyweight",
             "status": "scheduled",
-            "detail": "12/12 - 7:00 PM EST",
+            "detail": "12/12 - 6:00 PM EST",
             "method": null,
             "finish": null,
             "note": null,
@@ -14426,7 +14426,7 @@
           },
           {
             "id": "401932035",
-            "weightClass": null,
+            "weightClass": "Heavyweight",
             "status": "scheduled",
             "detail": "1/16 - 5:00 PM EST",
             "method": null,
@@ -14534,7 +14534,7 @@
           },
           {
             "id": "401936038",
-            "weightClass": "Light Heavyweight",
+            "weightClass": "Lightweight",
             "status": "scheduled",
             "detail": "1/16 - 5:00 PM EST",
             "method": null,
