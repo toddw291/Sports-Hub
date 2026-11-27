@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-26T20:08:41.677Z",
+  "updatedAt": "2026-11-27T19:55:25.498Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -86,8 +86,32 @@
       "seasonState": "Regular season",
       "availability": [
         {
+          "name": "Charvarius Ward",
+          "position": "CB",
+          "status": "Out",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jalen Travis",
+          "position": "OT",
+          "status": "Out",
+          "reason": "Knee"
+        },
+        {
+          "name": "Jerry Tillery",
+          "position": "DT",
+          "status": "Out",
+          "reason": "Calf"
+        },
+        {
           "name": "Seth McGowan",
           "position": "RB",
+          "status": "Out",
+          "reason": "Hamstring"
+        },
+        {
+          "name": "Will Mallory",
+          "position": "TE",
           "status": "Out",
           "reason": "Hamstring"
         },
@@ -108,36 +132,6 @@
           "position": "CB",
           "status": "IR",
           "reason": "Groin"
-        },
-        {
-          "name": "Bernhard Raimann",
-          "position": "OT",
-          "status": "Questionable",
-          "reason": "Concussion"
-        },
-        {
-          "name": "Charvarius Ward",
-          "position": "CB",
-          "status": "Questionable",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jalen Travis",
-          "position": "OT",
-          "status": "Questionable",
-          "reason": "Knee"
-        },
-        {
-          "name": "Jerry Tillery",
-          "position": "DT",
-          "status": "Questionable",
-          "reason": "Calf"
-        },
-        {
-          "name": "Will Mallory",
-          "position": "TE",
-          "status": "Questionable",
-          "reason": "Hamstring"
         },
         {
           "name": "Daniel Jones",
@@ -957,10 +951,10 @@
           "reason": "Hamstring"
         },
         {
-          "name": "Aaron Nesmith",
+          "name": "Kelly Oubre Jr.",
           "position": "G",
           "status": "Day-to-day",
-          "reason": "Foot"
+          "reason": "Hand"
         },
         {
           "name": "Larry Nance Jr.",
@@ -999,7 +993,7 @@
         "status": "scheduled",
         "detail": "11/27 - 7:30 PM EST",
         "timeValid": true,
-        "phase": null,
+        "phase": "Pregame",
         "venue": "Gainbridge Fieldhouse",
         "broadcast": null,
         "neutralSite": false,
@@ -1722,7 +1716,7 @@
           "status": "scheduled",
           "detail": "11/27 - 7:30 PM EST",
           "timeValid": true,
-          "phase": null,
+          "phase": "Pregame",
           "venue": "Gainbridge Fieldhouse",
           "broadcast": null,
           "neutralSite": false,
