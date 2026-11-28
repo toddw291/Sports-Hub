@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "updatedAt": "2026-11-27T19:55:25.498Z",
+  "updatedAt": "2026-11-28T18:53:42.751Z",
   "timezone": "America/New_York",
   "source": {
     "name": "ESPN public scoreboard",
@@ -130,8 +130,14 @@
         {
           "name": "Cam Taylor-Britt",
           "position": "CB",
-          "status": "IR",
+          "status": "Questionable",
           "reason": "Groin"
+        },
+        {
+          "name": "Drew Ogletree",
+          "position": "TE",
+          "status": "Questionable",
+          "reason": "Knee"
         },
         {
           "name": "Daniel Jones",
@@ -855,11 +861,11 @@
       "abbr": "IND",
       "espnTeamId": "11",
       "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-      "record": "6-12",
+      "record": "6-13",
       "wins": 6,
-      "losses": 12,
+      "losses": 13,
       "ties": 0,
-      "streak": "W1",
+      "streak": "L1",
       "seed": "12",
       "standingName": "Central",
       "conference": "Eastern Conference",
@@ -869,14 +875,28 @@
           "name": "Bucks",
           "fullName": "Milwaukee Bucks",
           "wins": 2,
-          "losses": 17,
+          "losses": 18,
           "ties": null,
-          "pct": ".105",
-          "streak": "L1",
-          "diff": "-212",
+          "pct": ".100",
+          "streak": "L2",
+          "diff": "-227",
           "seed": "15",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mil.png",
           "ours": false
+        },
+        {
+          "abbr": "IND",
+          "name": "Pacers",
+          "fullName": "Indiana Pacers",
+          "wins": 6,
+          "losses": 13,
+          "ties": null,
+          "pct": ".316",
+          "streak": "L1",
+          "diff": "-84",
+          "seed": "12",
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
+          "ours": true
         },
         {
           "abbr": "CHI",
@@ -891,20 +911,6 @@
           "seed": "11",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png",
           "ours": false
-        },
-        {
-          "abbr": "IND",
-          "name": "Pacers",
-          "fullName": "Indiana Pacers",
-          "wins": 6,
-          "losses": 12,
-          "ties": null,
-          "pct": ".333",
-          "streak": "W1",
-          "diff": "-60",
-          "seed": "12",
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png",
-          "ours": true
         },
         {
           "abbr": "CLE",
@@ -924,19 +930,19 @@
           "abbr": "DET",
           "name": "Pistons",
           "fullName": "Detroit Pistons",
-          "wins": 11,
+          "wins": 12,
           "losses": 6,
           "ties": null,
-          "pct": ".647",
-          "streak": "W1",
-          "diff": "+95",
-          "seed": "5",
+          "pct": ".667",
+          "streak": "W2",
+          "diff": "+110",
+          "seed": "3",
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/det.png",
           "ours": false
         }
       ],
       "byeWeek": null,
-      "seasonState": "NBA Cup",
+      "seasonState": "Regular season",
       "availability": [
         {
           "name": "Ben Sheppard",
@@ -945,27 +951,15 @@
           "reason": "Knee"
         },
         {
-          "name": "Tyrese Haliburton",
+          "name": "T.J. McConnell",
           "position": "G",
           "status": "Out",
           "reason": "Hamstring"
         },
         {
-          "name": "Kelly Oubre Jr.",
+          "name": "Tyrese Haliburton",
           "position": "G",
-          "status": "Day-to-day",
-          "reason": "Hand"
-        },
-        {
-          "name": "Larry Nance Jr.",
-          "position": "F",
-          "status": "Day-to-day",
-          "reason": "Ankle"
-        },
-        {
-          "name": "T.J. McConnell",
-          "position": "G",
-          "status": "Day-to-day",
+          "status": "Out",
           "reason": "Hamstring"
         },
         {
@@ -988,16 +982,25 @@
         }
       ],
       "nextGame": {
-        "id": "401909328",
-        "start": "2026-11-28T00:30Z",
+        "id": "401910048",
+        "start": "2026-11-29T01:00Z",
         "status": "scheduled",
-        "detail": "11/27 - 7:30 PM EST",
+        "detail": "11/28 - 8:00 PM EST",
         "timeValid": true,
         "phase": "Pregame",
-        "venue": "Gainbridge Fieldhouse",
-        "broadcast": null,
+        "venue": "United Center",
+        "broadcast": "DAZN IND",
         "neutralSite": false,
         "home": {
+          "id": "4",
+          "abbr": "CHI",
+          "name": "Chicago Bulls",
+          "shortName": "Bulls",
+          "score": null,
+          "winner": false,
+          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/chi.png"
+        },
+        "away": {
           "id": "11",
           "abbr": "IND",
           "name": "Indiana Pacers",
@@ -1006,18 +1009,39 @@
           "winner": false,
           "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
         },
-        "away": {
-          "id": "20",
-          "abbr": "PHI",
-          "name": "Philadelphia 76ers",
-          "shortName": "76ers",
-          "score": null,
-          "winner": false,
-          "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png"
-        },
-        "ours": "home"
+        "ours": "away"
       },
       "recent": [
+        {
+          "id": "401909328",
+          "start": "2026-11-28T00:30Z",
+          "status": "final",
+          "detail": "Final",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Gainbridge Fieldhouse",
+          "broadcast": null,
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": "87",
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          },
+          "away": {
+            "id": "20",
+            "abbr": "PHI",
+            "name": "Philadelphia 76ers",
+            "shortName": "76ers",
+            "score": "111",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
+          },
+          "ours": "home"
+        },
         {
           "id": "401910038",
           "start": "2026-11-24T00:30Z",
@@ -1137,36 +1161,6 @@
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/hou.png"
           },
           "ours": "home"
-        },
-        {
-          "id": "401909985",
-          "start": "2026-11-15T18:00Z",
-          "status": "final",
-          "detail": "Final",
-          "timeValid": true,
-          "phase": null,
-          "venue": "Xfinity Mobile Arena",
-          "broadcast": "DAZN IND",
-          "neutralSite": false,
-          "home": {
-            "id": "20",
-            "abbr": "PHI",
-            "name": "Philadelphia 76ers",
-            "shortName": "76ers",
-            "score": "131",
-            "winner": true,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
-          },
-          "away": {
-            "id": "11",
-            "abbr": "IND",
-            "name": "Indiana Pacers",
-            "shortName": "Pacers",
-            "score": "124",
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
-          },
-          "ours": "away"
         }
       ],
       "schedule": [
@@ -1713,10 +1707,10 @@
         {
           "id": "401909328",
           "start": "2026-11-28T00:30Z",
-          "status": "scheduled",
-          "detail": "11/27 - 7:30 PM EST",
+          "status": "final",
+          "detail": "Final",
           "timeValid": true,
-          "phase": "Pregame",
+          "phase": null,
           "venue": "Gainbridge Fieldhouse",
           "broadcast": null,
           "neutralSite": false,
@@ -1725,18 +1719,18 @@
             "abbr": "IND",
             "name": "Indiana Pacers",
             "shortName": "Pacers",
-            "score": null,
+            "score": "87",
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
           },
           "away": {
             "id": "20",
             "abbr": "PHI",
             "name": "Philadelphia 76ers",
             "shortName": "76ers",
-            "score": null,
-            "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/phi.png"
+            "score": "111",
+            "winner": true,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/phi.png"
           },
           "ours": "home"
         },
@@ -1746,7 +1740,7 @@
           "status": "scheduled",
           "detail": "11/28 - 8:00 PM EST",
           "timeValid": true,
-          "phase": null,
+          "phase": "Pregame",
           "venue": "United Center",
           "broadcast": "DAZN IND",
           "neutralSite": false,
@@ -1757,7 +1751,7 @@
             "shortName": "Bulls",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/chi.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/chi.png"
           },
           "away": {
             "id": "11",
@@ -1766,7 +1760,7 @@
             "shortName": "Pacers",
             "score": null,
             "winner": false,
-            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/scoreboard/ind.png"
           },
           "ours": "away"
         },
@@ -1802,9 +1796,9 @@
         },
         {
           "id": "401910085",
-          "start": "2026-12-04T00:00Z",
+          "start": "2026-12-03T01:00Z",
           "status": "scheduled",
-          "detail": "12/3 - 7:00 PM EST",
+          "detail": "12/2 - 8:00 PM EST",
           "timeValid": true,
           "phase": null,
           "venue": "State Farm Arena",
@@ -1818,6 +1812,66 @@
             "score": null,
             "winner": false,
             "logo": "https://a.espncdn.com/i/teamlogos/nba/500/atl.png"
+          },
+          "away": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": null,
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          },
+          "ours": "away"
+        },
+        {
+          "id": "401937103",
+          "start": "2026-12-08T00:00Z",
+          "status": "scheduled",
+          "detail": "12/7 - 7:00 PM EST",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Gainbridge Fieldhouse",
+          "broadcast": null,
+          "neutralSite": false,
+          "home": {
+            "id": "11",
+            "abbr": "IND",
+            "name": "Indiana Pacers",
+            "shortName": "Pacers",
+            "score": null,
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/ind.png"
+          },
+          "away": {
+            "id": "14",
+            "abbr": "MIA",
+            "name": "Miami Heat",
+            "shortName": "Heat",
+            "score": null,
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/mia.png"
+          },
+          "ours": "home"
+        },
+        {
+          "id": "401937109",
+          "start": "2026-12-11T00:00Z",
+          "status": "scheduled",
+          "detail": "12/10 - 7:00 PM EST",
+          "timeValid": true,
+          "phase": null,
+          "venue": "Capital One Arena",
+          "broadcast": null,
+          "neutralSite": false,
+          "home": {
+            "id": "27",
+            "abbr": "WSH",
+            "name": "Washington Wizards",
+            "shortName": "Wizards",
+            "score": null,
+            "winner": false,
+            "logo": "https://a.espncdn.com/i/teamlogos/nba/500/wsh.png"
           },
           "away": {
             "id": "11",
@@ -8606,7 +8660,7 @@
     "league": "UFC",
     "name": "UFC",
     "shortName": "UFC",
-    "seasonState": null,
+    "seasonState": "Fight week",
     "nextEvent": {
       "id": "600062700",
       "name": "UFC Fight Night: Adesanya vs Magomedov",
@@ -13908,7 +13962,7 @@
           },
           {
             "id": "401936140",
-            "weightClass": null,
+            "weightClass": "Flyweight",
             "status": "scheduled",
             "detail": "12/12 - 5:00 PM EST",
             "method": null,
@@ -13918,18 +13972,45 @@
             "card": "prelim",
             "fighters": [
               {
-                "name": "TBA",
-                "record": null,
+                "name": "Roque Conceição",
+                "record": "12-3-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/bra.png",
+                "country": "Brazil"
               },
               {
-                "name": "Opponent TBA",
-                "record": null,
+                "name": "Nilson Rojas",
+                "record": "9-1-0",
                 "winner": false,
-                "flag": "https://www.espn.com/i/teamlogos/countries/500/blank.png",
-                "country": "default"
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/chi.png",
+                "country": "Chile"
+              }
+            ]
+          },
+          {
+            "id": "401936998",
+            "weightClass": "W Bantamweight",
+            "status": "scheduled",
+            "detail": "12/12 - 5:00 PM EST",
+            "method": null,
+            "finish": null,
+            "note": null,
+            "mainEvent": false,
+            "card": "prelim",
+            "fighters": [
+              {
+                "name": "Jacqueline Cavalcanti",
+                "record": "10-2-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/por.png",
+                "country": "Portugal"
+              },
+              {
+                "name": "Michelle Montague",
+                "record": "8-0-0",
+                "winner": false,
+                "flag": "https://a.espncdn.com/i/teamlogos/countries/500/nzl.png",
+                "country": "New Zealand"
               }
             ]
           }
